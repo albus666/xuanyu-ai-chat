@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 2,
+  "generatorMode": "built-in image_gen",
+  "useCase": "stylized-concept",
+  "assetType": "mobile profile multi-frame animated foreground layer",
+  "sharedPrompt": "Portrait 2:3 production cutout source. Keep every animal and decoration inside the central 74% safe area with generous mobile-UI margins. Render on one perfectly uniform #FF00FF chroma-key backdrop without texture, shadow, haze or reflection. Never use magenta in the subject. No text, logo, border, watermark, crop, human or UI.",
+  "motionPrompt": "Create a strict 4x2 contact sheet containing eight consistent sequential frames. Keep the subject center fixed and animate its real anatomy instead of translating, rotating or scaling the complete artwork. The first and last frame must join as a seamless loop. Use one uniform magenta chroma background with no labels or borders.",
+  "postProcessing": "Crop eight equal cells, key the magenta backdrop to a real alpha channel, place each complete subject in a 640x960 mobile safe area, encode an 8 fps transparent animated WebP, and validate eight distinct frames plus transparent corners.",
+  "items": [
+    {
+      "id": "dolphin_companions",
+      "prompt": "Two complete joyful little dolphins swimming together with bubbles and two luminous aqua wave ribbons; high-end soft 3D storybook illustration; pale aqua, sea-glass teal, pearl white and restrained warm gold.",
+      "motion": "Natural tail strokes, slight spinal flexion, delayed fin paddling and rising bubbles."
+    },
+    {
+      "id": "whale_companions",
+      "prompt": "A serene small celestial whale gliding with a smaller companion, sparse spiral stars and tiny bubbles; premium painterly fantasy watercolor; midnight blue, misty lavender, pearl white and antique gold.",
+      "motion": "Slow tail-fluke propulsion, gentle pectoral-fin strokes and a small breathing mist."
+    },
+    {
+      "id": "jellyfish_lullaby",
+      "prompt": "Three graceful translucent jellyfish floating at different heights with complete separated tentacles and sparse bubbles; elegant luminous glass-and-watercolor illustration; pale cyan, lilac, pearl white and warm-gold glints.",
+      "motion": "Bell contraction and release with physically delayed tentacle flow and breathing light."
+    },
+    {
+      "id": "koi_ripple",
+      "prompt": "Two complete koi circling a luminous ripple with a few petals; refined contemporary Chinese ink-and-mineral-pigment illustration; celadon, ivory, muted cinnabar and champagne gold.",
+      "motion": "S-shaped body undulation, tail-fin propulsion and lightly delayed translucent fins."
+    },
+    {
+      "id": "butterfly_breeze",
+      "prompt": "Five small butterflies drifting upward among complete flower petals and tiny dew lights; premium gouache storybook illustration; butter yellow, pale blue, soft peach, sage and pearl white.",
+      "motion": "Full open-close wingbeat with small antenna and petal reactions."
+    },
+    {
+      "id": "cloud_rabbits",
+      "prompt": "A complete gentle moon rabbit resting on a small crescent cloud with a tiny rabbit friend and separate cloud puffs; premium soft clay-and-felt 3D; ivory, sky blue, oat cream and champagne gold.",
+      "motion": "Sleeping breath, one soft blink, a small ear twitch and local cloud flow."
+    },
+    {
+      "id": "penguin_warmth",
+      "prompt": "Two complete tiny penguins leaning together on a floating snow island with sparse snowflakes and one aurora ribbon; premium miniature 3D diorama; navy, cool gray, white and muted amber.",
+      "motion": "Breathing, blinking, a tiny affectionate nuzzle and local falling snow."
+    },
+    {
+      "id": "red_panda_autumn",
+      "prompt": "A complete red panda curled on a floating autumn branch with its full tail and a few leaves; premium layered-paper and soft-gouache illustration; rust, chestnut, cream, moss and muted gold.",
+      "motion": "Full fluffy-tail sweep, ear twitch, soft blink and local leaf movement."
+    },
+    {
+      "id": "moon_cat",
+      "prompt": "A complete calm cat sitting on a slim crescent moon, full tail curled around it, with three star charms and sparse stardust; premium velvet-and-enamel fantasy illustration; indigo, moon ivory, dusty blue and champagne gold.",
+      "motion": "Slow tail curl, ear twitch, breathing, blinking and local star shimmer."
+    },
+    {
+      "id": "crane_mist",
+      "prompt": "Two complete red-crowned cranes gliding through a sparse curling mist ribbon with tiny plum petals; refined modern Chinese gongbi and mineral-pigment illustration; warm white, blue-gray, muted cinnabar and antique gold.",
+      "motion": "Anatomical shoulder-led wingbeat with delayed primary feathers, neck and tail response."
+    },
+    {
+      "id": "aurora_fox",
+      "prompt": "A complete silver fox stepping along a narrow aurora ribbon with a full flowing tail and sparse snow crystals; premium cinematic fantasy illustration; silver, deep teal, icy blue and pale gold.",
+      "motion": "Full tail sweep, attentive ear turn, breathing, blinking and local aurora flow."
+    },
+    {
+      "id": "otter_holding_paws",
+      "prompt": "Two complete sea otters floating belly-up and holding paws with a few shells, bubbles and a circular water ribbon; premium soft 3D storybook illustration; cocoa, cream, aqua, sea-glass green and sun gold.",
+      "motion": "Hind-paw paddling, tail steering, alternating blink and rising bubbles while front paws stay linked."
+    }
+  ]
+}

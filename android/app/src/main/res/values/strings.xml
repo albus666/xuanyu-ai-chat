@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="privacy_consent_title">用户服务与隐私保护</string>
+    <string name="privacy_consent_body">感谢您选择玄遇！在您使用前，请认真阅读并同意《用户协议》与《隐私政策》。平台对违规内容及骚扰、欺凌等滥用行为零容忍；核实后将下架内容并限制或封禁违规账号。您同意遵守《用户协议》中的社区规则。我们将严格保护您的个人信息安全。点击「同意并继续」前，应用不会初始化第三方 SDK，也不会读取传感器等个人信息。</string>
+    <string name="privacy_consent_agree">同意并继续</string>
+    <string name="privacy_consent_disagree">不同意</string>
+    <string name="privacy_consent_link_user_agreement">《用户协议》</string>
+    <string name="privacy_consent_link_privacy_policy">《隐私政策》</string>
+    <string name="privacy_document_user_agreement">用户协议</string>
+    <string name="privacy_document_privacy_policy">隐私政策</string>
+    <string name="privacy_document_back">返回</string>
+    <string name="privacy_document_version">版本 %1$s</string>
+    <string name="privacy_document_effective_date">生效 %1$s</string>
+    <string name="privacy_document_load_failed">协议内容暂时无法读取，请返回后重试。</string>
+    <string name="startup_quote_default">愿你在认真生活的日子里，既有向前奔赴的勇气，也有拥抱自己的温柔。</string>
+</resources>

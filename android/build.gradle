@@ -1,0 +1,69 @@
+buildscript {
+    ext.kotlin_version = '2.1.0'
+    repositories {
+        // 仅保留阿里云仓库镜像（无代理）
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.9.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        // 与 buildscript 一致：先镜像，避免 dl.google.com 不可达时依赖下载失败
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+    project.afterEvaluate {
+        // 与 app 模块对齐 compileSdk；旧插件（如 amap_flutter_location 仍为 29）会触发 lStar 等资源链接错误
+        if (project.plugins.hasPlugin("com.android.library") && project.hasProperty('android')) {
+            def android = project.android
+            if (android.hasProperty('compileSdk')) {
+                android.compileSdk = 36
+            }
+            android.compileSdkVersion 36
+        }
+        // AGP 8 要求 library 必须指定 namespace，为未指定的旧插件从 AndroidManifest 的 package 补全
+        if (project.plugins.hasPlugin("com.android.library")) {
+            if (project.android.namespace == null || project.android.namespace.isEmpty()) {
+                def manifest = file("${project.projectDir}/src/main/AndroidManifest.xml")
+                if (manifest.exists()) {
+                    def pkg = new XmlSlurper().parse(manifest).@package.text()
+                    if (pkg) {
+                        project.android.namespace = pkg.toString()
+                    }
+                }
+            }
+        }
+        tasks.withType(JavaCompile).configureEach {
+            options.compilerArgs << "-Xlint:-options"
+        }
+        configurations.configureEach {
+            resolutionStrategy {
+                force "com.amap.api:3dmap-location-search:11.2.100_loc11.2.100_sea9.8.1"
+            }
+        }
+    }
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

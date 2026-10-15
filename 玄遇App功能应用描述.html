@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>玄遇 App 功能应用描述</title>
+  <style>
+    :root {
+      --primary: #b91c1c;
+      --primary-dark: #7f1d1d;
+      --primary-soft: #fee2e2;
+      --gold: #b45309;
+      --gold-soft: #fef3c7;
+      --green: #059669;
+      --blue: #2563eb;
+      --pink: #be185d;
+      --ink: #1f2937;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --paper: #ffffff;
+      --bg: #f8fafc;
+      --bg-deep: #eef2f7;
+      --shadow: 0 18px 44px rgba(31, 41, 55, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 4%, rgba(185, 28, 28, 0.10), transparent 28%),
+        linear-gradient(180deg, var(--bg), var(--bg-deep));
+      line-height: 1.68;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero {
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+      padding: 48px 0 40px;
+    }
+
+    .brand-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 14px;
+      border: 1px solid rgba(185, 28, 28, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), #dc2626);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .pill {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 12px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .hero-panel {
+      position: relative;
+      min-height: 430px;
+      border-radius: 28px;
+      padding: 24px;
+      color: #fff;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(127, 29, 29, 0.96), rgba(185, 28, 28, 0.90) 48%, rgba(217, 119, 6, 0.86)),
+        url("images/login_bg@3x.png") center / cover;
+      box-shadow: var(--shadow);
+    }
+
+    .phone {
+      width: min(320px, 90%);
+      margin: 0 auto;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      padding: 14px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
+    }
+
+    .phone-top {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
+    .phone-card {
+      margin-top: 10px;
+      border-radius: 20px;
+      padding: 16px;
+      background: linear-gradient(135deg, #9f1239, #dc2626);
+      color: #fff;
+    }
+
+    .phone-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .phone-icon {
+      min-height: 84px;
+      border-radius: 16px;
+      padding: 10px 6px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: #fff;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .phone-icon img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      margin-bottom: 4px;
+    }
+
+    .section {
+      margin-top: 34px;
+      padding: 32px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(226, 232, 240, 0.85);
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .section-note {
+      max-width: 420px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--primary);
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .feature {
+      min-height: 230px;
+      padding: 20px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .feature img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .feature p,
+    .module p,
+    .support p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      color: #475569;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .module {
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .module h3 {
+      margin-bottom: 10px;
+    }
+
+    .list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 18px;
+      color: #334155;
+      font-size: 14px;
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      padding: 18px 14px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .step b {
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .step span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .support {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .support .num {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .notice {
+      margin-top: 34px;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #1f2937, #334155);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .notice p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 14px;
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .footer {
+      margin-top: 26px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .legal-section {
+      margin-top: 34px;
+      padding: 28px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.90);
+      border: 1px solid rgba(226, 232, 240, 0.92);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+    }
+
+    .legal-title {
+      margin-bottom: 16px;
+    }
+
+    .legal-title h2 {
+      font-size: clamp(24px, 3vw, 34px);
+    }
+
+    details.legal {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    details.legal + details.legal {
+      margin-top: 12px;
+    }
+
+    details.legal summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    details.legal summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.legal summary::after {
+      content: "+";
+      width: 28px;
+      height: 28px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    details.legal[open] summary::after {
+      content: "-";
+    }
+
+    .legal-body {
+      padding: 0 20px 22px;
+      color: #334155;
+      border-top: 1px solid var(--line);
+    }
+
+    .legal-body h3 {
+      margin: 22px 0 8px;
+      font-size: 17px;
+    }
+
+    .legal-body p {
+      margin: 8px 0;
+      color: #475569;
+      font-size: 14px;
+    }
+
+    .legal-body ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      color: #475569;
+      font-size: 14px;
+    }
+
+    .legal-body li {
+      margin: 6px 0;
+    }
+
+    .legal-meta {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .legal-callout {
+      margin: 14px 0;
+      padding: 14px;
+      border-radius: 14px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      font-size: 14px;
+    }
+
+    .legal-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font-size: 13px;
+    }
+
+    .legal-table th,
+    .legal-table td {
+      padding: 11px 12px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .legal-table th {
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 900;
+    }
+
+    .legal-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .module-grid,
+      .notice {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid,
+      .support-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .overview,
+      .flow {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding-top: 18px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 18px;
+      }
+
+      .section {
+        padding: 22px 16px;
+        border-radius: 20px;
+      }
+
+      .legal-section {
+        padding: 20px 14px;
+      }
+
+      .section-title,
+      .hero-actions {
+        display: block;
+      }
+
+      .section-note,
+      .pill {
+        margin-top: 10px;
+      }
+
+      .feature-grid,
+      .support-grid,
+      .overview,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="brand-row">
+          <span class="brand-mark">玄</span>
+          <span>玄遇 App 功能应用描述</span>
+        </div>
+        <h1>国学命理、缘分社交与健康养生的一站式应用</h1>
+        <p class="lead">
+          玄遇是一款围绕东方传统文化、个人命理档案、缘分匹配、社区互动和即时沟通打造的移动应用。它把八字排盘、每日运势、智慧风水、体质测试、名师咨询、语音匹配和同好社区整合在同一个产品体验中，让用户既能获得个性化参考，也能找到可交流、可分享、可陪伴的兴趣圈层。
+        </p>
+        <div class="hero-actions">
+          <span class="pill">定位：国学兴趣社交 App</span>
+          <span class="pill">核心：命理工具 + 社区 + 咨询</span>
+          <span class="pill">用户：传统文化、情感匹配、养生兴趣人群</span>
+        </div>
+      </div>
+
+      <div class="hero-panel" aria-label="玄遇 App 首页功能示意">
+        <div class="phone">
+          <div class="phone-top">
+            <span>玄遇</span>
+            <span>今日</span>
+          </div>
+          <div class="phone-card">
+            <strong>今日运势</strong>
+            <div style="font-size:13px;margin-top:8px;color:rgba(255,255,255,.86)">根据用户资料生成每日专属运势摘要，支持进入详情查看完整内容。</div>
+          </div>
+          <div class="phone-grid">
+            <div class="phone-icon"><img src="images/icon_bazi@3x.png" alt="">八字排盘</div>
+            <div class="phone-icon"><img src="images/icon_fengshui@3x.png" alt="">风水分析</div>
+            <div class="phone-icon"><img src="images/icon_tizhi@3x.png" alt="">体质测试</div>
+            <div class="phone-icon"><img src="images/icon_zixun@3x.png" alt="">名师咨询</div>
+            <div class="phone-icon"><img src="images/icon_yuanfen@3x.png" alt="">缘分匹配</div>
+            <div class="phone-icon"><img src="images/icon_huatong@3x.png" alt="">语音匹配</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div>
+          <div class="section-kicker">产品概览</div>
+          <h2>五大底层模块承接完整用户旅程</h2>
+        </div>
+        <p class="section-note">从首次注册、完善资料，到查看运势、参与社区、即时沟通、管理个人资产与内容，形成闭环体验。</p>
+      </div>
+      <div class="overview">
+        <div class="stat"><strong>6</strong><span>首页核心服务入口</span></div>
+        <div class="stat"><strong>5</strong><span>底部主导航模块</span></div>
+        <div class="stat"><strong>3</strong><span>社区内容流：推荐、同城、关注</span></div>
+        <div class="stat"><strong>2</strong><span>咨询方式：AI 名师、真人名师</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div>
+          <div class="section-kicker">首页核心功能</div>
+          <h2>把高频工具放在第一屏</h2>
+        </div>
+        <p class="section-note">首页承担用户每日打开 App 的主要价值：快速获得今日建议、进入专业工具、浏览社区热点。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="feature-head"><img src="images/icon_bazi@3x.png" alt=""><h3>八字排盘</h3></div>
+          <p>支持输入命主姓名、性别、历法、出生日期和出生地，结合真太阳时生成完整命盘，并进入多标签结果页查看基础盘、详细盘、个人信息和智能分析。</p>
+          <div class="tags"><span class="tag">公历/农历/四柱</span><span class="tag">真太阳时</span><span class="tag">命理档案</span></div>
+        </article>
+        <article class="feature">
+          <div class="feature-head"><img src="images/icon_yangsheng@3x.png" alt=""><h3>今日运势与养生</h3></div>
+          <p>首页展示今日运势与今日养生卡片。运势内容可进入详情页查看，养生建议结合体质、天气和用户资料生成，并使用本地缓存减少重复请求。</p>
+          <div class="tags"><span class="tag">每日摘要</span><span class="tag">天气信息</span><span class="tag">详情阅读</span></div>
+        </article>
+        <article class="feature">
+          <div class="feature-head"><img src="images/icon_fengshui@3x.png" alt=""><h3>智慧风水</h3></div>
+          <p>提供八宫吉凶查询和电子罗盘。用户点击九宫格方位，输入物品或外环境关键词，由本地词库匹配相近条目并展示吉凶解读。</p>
+          <div class="tags"><span class="tag">八宫方位</span><span class="tag">本地词库</span><span class="tag">电子罗盘</span></div>
+        </article>
+        <article class="feature">
+          <div class="feature-head"><img src="images/icon_tizhi@3x.png" alt=""><h3>体质测试</h3></div>
+          <p>通过性别、年龄、问卷和舌象拍摄完成体质评估，生成结构化报告。测试后可同步刷新今日养生建议，使首页内容更个性化。</p>
+          <div class="tags"><span class="tag">问卷</span><span class="tag">舌象图片</span><span class="tag">AI 报告</span></div>
+        </article>
+        <article class="feature">
+          <div class="feature-head"><img src="images/icon_zixun@3x.png" alt=""><h3>名师咨询</h3></div>
+          <p>提供 AI 名师和真人名师两种入口。真人名师支持认证标识、简介展示、咨询单价、余额扣费和一对一深度沟通。</p>
+          <div class="tags"><span class="tag">AI 在线</span><span class="tag">真人认证</span><span class="tag">付费咨询</span></div>
+        </article>
+        <article class="feature">
+          <div class="feature-head"><img src="images/icon_yuanfen@3x.png" alt=""><h3>缘分与语音匹配</h3></div>
+          <p>缘分匹配围绕喜属性、时辰、年龄、性别、生肖、同日生等维度筛选；语音匹配则支持一对一实时语音聊天，增强即时互动。</p>
+          <div class="tags"><span class="tag">命理维度</span><span class="tag">实时语音</span><span class="tag">社交破冰</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div>
+          <div class="section-kicker">主导航模块</div>
+          <h2>首页、社区、发布、消息、我的</h2>
+        </div>
+        <p class="section-note">底部导航覆盖内容消费、内容生产、关系沟通和个人资产管理。</p>
+      </div>
+      <div class="module-grid">
+        <article class="module">
+          <h3>首页</h3>
+          <p>展示今日运势、今日养生、服务与匹配入口、热门社区推荐，并支持平台公告弹窗与公告列表查看。</p>
+          <ul class="list">
+            <li>今日运势和今日养生按日期缓存，避免重复加载。</li>
+            <li>服务入口包括八字排盘、风水分析、体质测试、名师咨询、缘分匹配、语音匹配。</li>
+            <li>热门推荐展示社区精选动态，支持点赞、收藏和分享。</li>
+          </ul>
+        </article>
+        <article class="module">
+          <h3>社区广场</h3>
+          <p>面向同好交流的内容广场，支持推荐、同城、关注三类信息流，并提供搜索、话题、帖子详情和用户主页。</p>
+          <ul class="list">
+            <li>帖子支持图文、视频、位置、话题、点赞、收藏、评论、回复、删除和分享。</li>
+            <li>推荐页可展示推荐部落和推荐群聊，用户可发起加入申请。</li>
+            <li>分享支持站内好友、系统外部分享以及带 App 二维码的分享图。</li>
+          </ul>
+        </article>
+        <article class="module">
+          <h3>发布</h3>
+          <p>用户可创建个人笔记或社区动态，选择图片、视频、文字、位置与话题，并发布到社区内容流。</p>
+          <ul class="list">
+            <li>支持从底部中间按钮快速进入发布流程。</li>
+            <li>发布成功后自动刷新社区和个人主页内容。</li>
+            <li>内容可在个人主页继续被点赞、分享和查看详情。</li>
+          </ul>
+        </article>
+        <article class="module">
+          <h3>消息</h3>
+          <p>聚合通知、申请、群聊部落、咨询和会话列表，支持未读数提醒和即时聊天。</p>
+          <ul class="list">
+            <li>支持单聊、群聊、部落群、聊天申请、群成员管理和聊天搜索。</li>
+            <li>通知入口展示社区互动与系统通知未读数量。</li>
+            <li>咨询入口可进入 AI 名师或真人名师会话。</li>
+          </ul>
+        </article>
+        <article class="module">
+          <h3>我的</h3>
+          <p>集中展示个人资料、钱包余额、个人笔记和侧边设置入口，是用户身份与资产管理中心。</p>
+          <ul class="list">
+            <li>支持编辑资料、修改手机号/密码、隐私设置和未成年人模式。</li>
+            <li>支持余额、充值、订单、收藏、命理档案和名师申请。</li>
+            <li>用户个人作品列表支持下拉刷新和触底加载。</li>
+          </ul>
+        </article>
+        <article class="module">
+          <h3>认证与登录</h3>
+          <p>提供登录、注册、找回密码、资料完善和用户协议/隐私政策确认，保障用户进入主功能前完成基本身份设置。</p>
+          <ul class="list">
+            <li>可缓存用户 ID、Token、资料和日常内容。</li>
+            <li>初次使用可进入问卷或资料完善流程。</li>
+            <li>每次打开 App 可更新 IP 属地用于同城能力。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div>
+          <div class="section-kicker">典型用户流程</div>
+          <h2>从资料建立到关系沉淀</h2>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="step"><b>1</b><strong>注册登录</strong><span>确认协议，完成账号注册、登录或找回密码。</span></div>
+        <div class="step"><b>2</b><strong>完善资料</strong><span>填写个人信息、出生信息、体质信息，形成个性化基础。</span></div>
+        <div class="step"><b>3</b><strong>使用工具</strong><span>查看运势、排盘、测体质、查风水，获取每日与长期参考。</span></div>
+        <div class="step"><b>4</b><strong>进入社区</strong><span>浏览推荐、同城、关注动态，发布内容并与同好互动。</span></div>
+        <div class="step"><b>5</b><strong>沟通转化</strong><span>通过匹配、语音、群聊、部落和名师咨询沉淀关系。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div>
+          <div class="section-kicker">支撑能力</div>
+          <h2>让内容、交易与沟通稳定运转</h2>
+        </div>
+      </div>
+      <div class="support-grid">
+        <article class="support">
+          <div class="num">01 内容分享</div>
+          <h3>站内与站外分享</h3>
+          <p>帖子可分享给站内好友，也可调起系统分享面板分享到微信、朋友圈等外部渠道，并生成带 App 二维码的分享图。</p>
+        </article>
+        <article class="support">
+          <div class="num">02 支付与钱包</div>
+          <h3>余额、充值与订单</h3>
+          <p>用户可查看余额、发起充值、查看订单；真人名师咨询前可按后台配置价格从余额扣费。</p>
+        </article>
+        <article class="support">
+          <div class="num">03 定位与地图</div>
+          <h3>同城和位置能力</h3>
+          <p>应用可更新 IP 属地，发布内容时可进行地图选点，为同城社区和位置展示提供基础。</p>
+        </article>
+        <article class="support">
+          <div class="num">04 实时通信</div>
+          <h3>消息和语音</h3>
+          <p>会话列表、申请、通知、群聊、部落和一对一语音共同构成即时沟通层，帮助用户从内容互动走向交流。</p>
+        </article>
+        <article class="support">
+          <div class="num">05 本地计算</div>
+          <h3>排盘与风水词库</h3>
+          <p>八字排盘包含本地历法与真太阳时计算；风水八宫查询使用本地结构化词库，减少无根据的生成式解读。</p>
+        </article>
+        <article class="support">
+          <div class="num">06 安全边界</div>
+          <h3>理性提示与隐私设置</h3>
+          <p>产品提供隐私设置、未成年人模式、协议政策和娱乐参考提示，帮助用户在合适边界内使用相关内容。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div>
+        <strong>应用定位一句话</strong>
+        <p>玄遇不是单一的算命工具，而是以命理兴趣为入口，连接每日建议、专业咨询、同好社区和即时社交的综合型国学生活应用。</p>
+      </div>
+      <span class="pill">内容仅供娱乐参考，请理性看待</span>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-title">
+        <div class="section-kicker">法律文本</div>
+        <h2>用户协议与隐私政策</h2>
+        <p class="section-note">以下内容默认折叠展示，可点击标题展开查看。正式上线前建议结合实际业务、第三方 SDK、服务器部署与监管要求进行法务复核。</p>
+      </div>
+
+      <details class="legal">
+        <summary>用户协议</summary>
+        <div class="legal-body">
+          <p>欢迎使用“玄遇”App。本协议由您与【河南省问灵科技有限公司】（以下简称“玄遇”“平台”或“我们”）共同订立，适用于您使用玄遇提供的账号、首页工具、八字排盘、今日运势、今日养生、体质测试、智慧风水、缘分匹配、语音匹配、社区广场、发布、消息、群聊/部落、AI 名师、真人名师咨询、钱包充值、订单、分享及个人中心等服务。</p>
+          <div class="legal-callout">重要提示：玄遇的命理、运势、风水、体质养生、缘分匹配及 AI 生成内容，均用于传统文化交流、娱乐和一般参考，不构成医疗诊断、心理咨询、法律意见、投资建议、婚恋承诺或任何确定性结果。</div>
+
+          <h3>1. 协议确认与适用范围</h3>
+          <ul>
+            <li>您在启动弹窗、注册/登录页或设置页点击同意，或实际使用玄遇服务，即表示您已阅读并同意本协议及《隐私政策》。</li>
+            <li>若您不同意本协议，请停止注册、登录或使用相关服务。部分基础浏览能力可能受限，涉及账号、发布、消息、支付、语音、定位等功能将无法正常使用。</li>
+            <li>平台可根据功能上线、法律法规或监管要求更新协议，并通过应用内弹窗、公告、设置页或其他合理方式提示。</li>
+          </ul>
+
+          <h3>2. 玄遇提供的主要服务</h3>
+          <table class="legal-table">
+            <tr><th>模块</th><th>服务说明</th><th>特别说明</th></tr>
+            <tr><td>首页</td><td>展示今日运势、今日养生、热门推荐、平台公告及六个核心入口。</td><td>每日内容会结合账号资料和接口结果展示，并可能进行本地缓存。</td></tr>
+            <tr><td>八字排盘</td><td>根据姓名、性别、历法、出生时间、出生地和真太阳时生成命盘与命理档案。</td><td>排盘结果仅供传统文化研究和娱乐参考。</td></tr>
+            <tr><td>体质测试</td><td>通过性别、年龄、问卷和舌象图片生成体质报告，并辅助今日养生建议。</td><td>不替代医院检查、医生诊断或治疗方案。</td></tr>
+            <tr><td>智慧风水</td><td>提供八宫吉凶、本地词库查询、电子罗盘与环境物品参考。</td><td>不得将结果作为购房、装修、经营等重大决策的唯一依据。</td></tr>
+            <tr><td>缘分/语音匹配</td><td>按性别、年龄、生肖、同城、出生信息等维度匹配，并支持一对一语音通话。</td><td>请谨慎沟通，不向陌生人泄露身份证号、住址、银行卡、验证码等敏感信息。</td></tr>
+            <tr><td>社区广场</td><td>支持推荐、同城、关注内容流，图文/视频发布，评论、回复、点赞、收藏、分享。</td><td>用户对自己发布和互动的内容承担责任。</td></tr>
+            <tr><td>消息与群聊</td><td>支持单聊、群聊、部落、申请、通知、名师咨询会话和未读提醒。</td><td>不得骚扰、诈骗、引流或传播违法违规信息。</td></tr>
+            <tr><td>钱包与咨询</td><td>支持余额、充值、订单、真人名师单价咨询、AI 名师交流等。</td><td>付费前请确认价格、对象和服务内容。</td></tr>
+          </table>
+
+          <h3>3. 账号注册、资料和隐私展示</h3>
+          <ul>
+            <li>您可能需要提供手机号、验证码、昵称、头像、性别、生日、简介、出生日期时间、出生地等信息，以完成注册登录、资料展示、命理档案、匹配和个性化推荐。</li>
+            <li>您可以在“我的-编辑资料”“设置-隐私与展示”中管理个人简介、所在地区、年龄、出生日期与时辰是否对他人主页可见。</li>
+            <li>您应确保提交资料真实、合法、不会侵犯他人权益。不得冒充他人、盗用头像昵称、使用违法或低俗资料。</li>
+            <li>您应妥善保管账号、密码、验证码和登录设备。因您主动泄露、转借、出售账号或保管不善造成的损失，由您自行承担。</li>
+          </ul>
+
+          <h3>4. 命理、养生、AI 与咨询内容规则</h3>
+          <ul>
+            <li>今日运势、八字排盘、缘分匹配、风水分析等属于传统文化和娱乐参考内容，不保证准确、完整、适用或必然发生。</li>
+            <li>体质测试、今日养生、舌象分析及相关建议属于健康科普和生活方式参考，不构成医疗诊断、用药建议或治疗方案。如身体不适，请及时就医。</li>
+            <li>AI 名师内容由算法生成，可能存在不准确、不完整或不适合您个人情况的内容。请理性判断，不应直接作为重大决定依据。</li>
+            <li>真人名师为平台认证或展示的服务提供者，其解答基于个人经验和专业背景。平台可展示名师简介、标识和单价，但不承诺咨询结果。</li>
+            <li>任何用户或名师不得以“改命”“包成功”“保复合”“消灾转运”等绝对化承诺诱导付费或线下交易。</li>
+          </ul>
+
+          <h3>5. 社区发布、互动和分享规则</h3>
+          <ul>
+            <li>您可以发布文字、图片、视频、位置、话题等内容，也可以点赞、收藏、评论、回复、删除本人可管理内容，并通过站内好友、系统分享或带二维码分享图进行分享。</li>
+            <li>您发布的内容不得包含违法违规、色情低俗、暴力恐怖、赌博诈骗、封建迷信诈骗、虚假广告、恶意引流、侵犯隐私、侵犯知识产权或其他不适宜内容。</li>
+            <li>您不得在社区、评论、私信、群聊、语音或名师咨询中骚扰他人、辱骂攻击、冒充平台人员、诱导转账、索要验证码或收集他人隐私。</li>
+            <li>平台有权根据法律法规和社区规则，对违规内容采取删除、折叠、限制传播、限制功能、封禁账号、保存证据或向有关机关报告等措施。</li>
+          </ul>
+
+          <h3>6. 语音匹配和即时通信</h3>
+          <ul>
+            <li>语音匹配需要使用麦克风权限，并通过声网等实时音视频能力进入语音房间。您可随时取消匹配或挂断通话。</li>
+            <li>您应自行判断通话对象身份和沟通内容，不得在语音或聊天中传播违法内容、骚扰他人、诱导线下交易或泄露自己及他人的敏感信息。</li>
+            <li>为保障安全和处理纠纷，平台可能保存匹配状态、房间号、会话关系、消息记录、举报记录和必要日志，但不会因提供语音能力而默认公开您的通话内容。</li>
+          </ul>
+
+          <h3>7. 付费、充值、余额和退款</h3>
+          <ul>
+            <li>玄遇可能提供余额充值、订单、真人名师咨询扣费、押金或其他付费服务。价格、单价、支付方式、服务说明以页面展示为准。</li>
+            <li>支付可能通过微信支付、支付宝支付或其他第三方支付渠道完成。请在支付前核对金额、服务对象和订单信息。</li>
+            <li>真人名师咨询可能在创建会话前按后台配置单价扣减余额；已有会话或页面另有说明的，按实际规则执行。</li>
+            <li>虚拟服务、即时咨询、数字内容或已经开始履行的服务，除法律法规另有规定、平台页面明确承诺或平台原因导致无法提供外，通常不支持无理由退款。</li>
+            <li>用户不得利用充值、退款、优惠、订单或平台漏洞实施套现、洗钱、刷单、欺诈等行为。</li>
+          </ul>
+
+          <h3>8. 知识产权与内容授权</h3>
+          <ul>
+            <li>玄遇 App 的名称、标识、界面、代码、功能、图标、视觉设计、数据库结构和运营素材归平台或相关权利人所有。</li>
+            <li>您发布的原创内容归您或原权利人所有。为实现发布、展示、推荐、缓存、分享图生成、站内转发、内容审核和运营推广，您授予平台非独占、免费、可转授权、可撤销范围受法律限制的使用许可。</li>
+            <li>您不得上传、发布或分享未经授权的他人作品、照片、视频、肖像、隐私信息或商业资料。</li>
+          </ul>
+
+          <h3>9. 未成年人保护</h3>
+          <ul>
+            <li>未成年人应在监护人同意和指导下使用玄遇。监护人应关注未成年人的注册、资料展示、社区互动、语音聊天和付费行为。</li>
+            <li>平台可提供未成年人模式，对发布、消息等功能进行限制。若监护人发现未成年人未经同意使用或消费，可通过邮箱 2254741308@qq.com 联系我们。</li>
+            <li>任何用户不得诱导未成年人进行打赏、转账、私下见面、泄露隐私或参与不适宜活动。</li>
+          </ul>
+
+          <h3>10. 服务变更、限制和终止</h3>
+          <p>平台可能因版本升级、系统维护、网络故障、第三方 SDK 异常、支付渠道调整、地图/语音服务变化、监管要求或不可抗力，对部分功能进行变更、中断、限制或下线。我们将尽合理努力进行提示，但在法律允许范围内不承担由此产生的间接损失。</p>
+
+          <h3>11. 免责声明和风险提示</h3>
+          <ul>
+            <li>玄遇不保证命理、运势、风水、体质、缘分匹配、AI 回复、社区内容或名师解答完全准确、可靠、实时或适合您的特定目的。</li>
+            <li>您因依赖相关内容进行婚恋、医疗、投资、就业、搬迁、装修、交易、诉讼等重大决策产生的后果，由您自行承担。</li>
+            <li>用户内容由用户自行发布，不代表平台观点。平台依法进行必要管理，但不对用户之间的线下行为、私下交易或外部链接风险承担责任。</li>
+          </ul>
+
+          <h3>12. 联系我们</h3>
+          <p>如您对账号、订单、内容、隐私、未成年人保护或本协议有疑问，可通过邮箱 2254741308@qq.com 联系我们。我们会在合理期限内处理您的请求。</p>
+          <div class="legal-meta">运营主体：【河南省问灵科技有限公司】。联系方式：2254741308@qq.com。备案号：豫ICP备2026007950号-1A。适用产品：玄遇 App。服务器接口域名当前配置为 https://www.lingshu.uno，正式发布时以应用内展示为准。</div>
+        </div>
+      </details>
+
+      <details class="legal">
+        <summary>隐私政策</summary>
+        <div class="legal-body">
+          <p>本隐私政策适用于【河南省问灵科技有限公司】开发运营的“玄遇”App。我们围绕传统文化工具、社区内容、即时消息、语音匹配、地图位置、支付咨询和个人中心提供服务，因此会在不同功能场景中处理相应个人信息。我们将遵循合法、正当、必要、诚信原则，尽量避免收集与服务无关的信息。</p>
+          <div class="legal-callout">您可以拒绝或关闭非必要权限，但相应功能可能无法使用。例如关闭麦克风后无法语音匹配，关闭定位后无法使用当前位置选点或同城相关能力。</div>
+
+          <h3>1. 我们收集的信息与具体使用场景</h3>
+          <table class="legal-table">
+            <tr><th>场景</th><th>可能收集的信息</th><th>使用目的</th></tr>
+            <tr><td>注册、登录、账号安全</td><td>手机号、验证码、Token、用户 ID、登录状态、设备和网络信息</td><td>创建账号、识别身份、保持登录、防止盗号和异常请求。</td></tr>
+            <tr><td>资料完善和主页展示</td><td>昵称、头像、性别、生日、年龄、个人简介、所在地区、关注/粉丝/获赞数据</td><td>展示个人主页、社区身份、匹配筛选和用户之间互动。</td></tr>
+            <tr><td>隐私与展示设置</td><td>个人简介、定位、年龄、出生日期与时辰的展示开关</td><td>控制他人查看您主页时可见的信息。</td></tr>
+            <tr><td>八字排盘和命理档案</td><td>命主姓名、性别、历法类型、出生日期时间、出生地、经纬度、真太阳时、排盘记录</td><td>生成八字排盘、基础盘、详细盘、智能分析和命理档案。</td></tr>
+            <tr><td>今日运势</td><td>账号资料、生日/出生信息、当日日期、运势接口结果、本地缓存</td><td>生成并展示每日运势卡片和详情页，避免当天重复请求。</td></tr>
+            <tr><td>体质测试和今日养生</td><td>性别、年龄、问卷答案、主诉、诱因、舌象图片、天气摘要、体质报告、本地缓存</td><td>生成体质报告和每日养生建议。相关内容不用于医疗诊断。</td></tr>
+            <tr><td>智慧风水</td><td>用户输入的物品/环境关键词、选择的方位、电子罗盘方向数据</td><td>匹配本地风水词库、展示八宫吉凶和罗盘方向。</td></tr>
+            <tr><td>缘分匹配</td><td>性别、年龄、生肖、出生信息、喜用信息、同城或地区信息、筛选条件</td><td>展示符合筛选条件的用户，辅助兴趣社交。</td></tr>
+            <tr><td>语音匹配</td><td>目标性别、匹配状态、房间号、通话时长、麦克风权限、必要网络状态</td><td>排队匹配、进入声网语音房间、实现一对一实时通话。</td></tr>
+            <tr><td>社区发布和互动</td><td>文字、图片、视频、封面、话题、位置、评论、回复、点赞、收藏、分享、删除记录</td><td>发布动态、展示内容流、互动通知、内容审核和纠纷处理。</td></tr>
+            <tr><td>地图选点和同城</td><td>定位权限、粗略/精确位置、经纬度、逆地理编码地址、IP 属地</td><td>发布位置、地图选点、同城内容、用户所在地区展示。</td></tr>
+            <tr><td>消息、群聊和部落</td><td>会话列表、聊天对象、消息内容、未读数、申请记录、群成员信息</td><td>实现单聊、群聊、部落、通知、申请审核和消息提醒。</td></tr>
+            <tr><td>名师咨询和钱包</td><td>余额、充值金额、订单号、支付状态、咨询对象、咨询单价、扣费记录、聊天记录</td><td>完成充值、支付、扣费、订单管理、咨询服务和售后处理。</td></tr>
+            <tr><td>系统通知和后台发布</td><td>通知权限、发布任务结果、成功/失败提示、系统公告读取状态</td><td>在发帖上传完成后提示您，展示平台公告和社区通知。</td></tr>
+          </table>
+
+          <h3>2. 我们调用的系统权限</h3>
+          <table class="legal-table">
+            <tr><th>权限</th><th>对应功能</th><th>是否可拒绝</th></tr>
+            <tr><td>网络访问</td><td>登录、接口请求、内容加载、上传图片/视频、支付、消息、语音匹配。</td><td>基础功能必需，关闭网络后多数功能不可用。</td></tr>
+            <tr><td>相机</td><td>拍摄头像、帖子图片、体质测试舌象图片。</td><td>可拒绝，拒绝后不能直接拍摄，可视系统能力选择相册。</td></tr>
+            <tr><td>相册/媒体文件</td><td>选择头像、发帖图片/视频、分享图保存或读取。</td><td>可拒绝，拒绝后相关上传或选择功能不可用。</td></tr>
+            <tr><td>麦克风/音频设置</td><td>语音匹配、一对一语音聊天、静音/扬声器控制。</td><td>可拒绝，拒绝后无法使用语音匹配和通话。</td></tr>
+            <tr><td>定位</td><td>当前位置、地图选点、同城内容、位置发布、所在地区展示。</td><td>可拒绝，拒绝后仍可手动选择或不展示位置，部分同城能力受限。</td></tr>
+            <tr><td>通知</td><td>发帖成功/失败提醒、系统通知、社区互动提醒。</td><td>可拒绝，拒绝后无法及时收到本地或系统提醒。</td></tr>
+            <tr><td>网络状态/Wi-Fi 状态</td><td>判断网络可用性、优化地图、语音和上传体验。</td><td>由系统和 SDK 按功能需要使用。</td></tr>
+          </table>
+
+          <h3>3. 第三方 SDK 与服务</h3>
+          <p>玄遇为实现特定功能接入第三方 SDK。以下公示信息与全国 SDK 管理服务平台登记信息保持一致（SDK名称、开发者、SDK隐私政策链接）：</p>
+          <table class="legal-table">
+            <tr><th>SDK名称</th><th>开发者</th><th>目的</th><th>收集信息范围</th><th>SDK隐私政策链接</th></tr>
+            <tr><td>APP支付客户端SDK</td><td>支付宝(杭州)信息技术有限公司</td><td>在您主动选择支付宝时调起支付宝完成订单支付</td><td>设备信息、网络信息、应用信息、支付订单信息</td><td><a href="https://opendocs.alipay.com/open/54/01g6qm#%E6%94%AF%E4%BB%98%E5%AE%9D%20App%20%E6%94%AF%E4%BB%98%E5%AE%A2%E6%88%B7%E7%AB%AF%20SDK%20%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96">https://opendocs.alipay.com/open/54/01g6qm#%E6%94%AF%E4%BB%98%E5%AE%9D%20App%20%E6%94%AF%E4%BB%98%E5%AE%A2%E6%88%B7%E7%AB%AF%20SDK%20%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96</a></td></tr>
+            <tr><td>地图SDK</td><td>北京高德图强科技有限公司</td><td>地图展示、地图选点、逆地理编码</td><td>位置信息、设备信息、网络信息、Wi-Fi及基站信息</td><td><a href="https://lbs.amap.com/pages/privacy/">https://lbs.amap.com/pages/privacy/</a></td></tr>
+            <tr><td>定位SDK</td><td>北京高德图强科技有限公司</td><td>获取当前位置、同城内容、位置发布和所在地区展示</td><td>位置信息、设备信息、网络信息、Wi-Fi及基站信息</td><td><a href="https://lbs.amap.com/pages/privacy/">https://lbs.amap.com/pages/privacy/</a></td></tr>
+            <tr><td>微信OpenSDK Android</td><td>深圳市腾讯计算机系统有限公司</td><td>微信支付与微信分享</td><td>设备信息、网络信息、应用信息、支付订单信息</td><td><a href="https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8">https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8</a></td></tr>
+            <tr><td>视频 SDK</td><td>上海声网科技有限公司</td><td>为实时音视频通话提供视频采集、编码与传输能力</td><td>设备信息、网络信息、摄像头视频流（仅在您主动开启视频后）</td><td><a href="https://www.shengwang.cn/SDK-privacy-policy/">https://www.shengwang.cn/SDK-privacy-policy/</a></td></tr>
+            <tr><td>音频 SDK</td><td>上海声网科技有限公司</td><td>为语音匹配、私人专线、在线名师和实时语音房间提供音频采集、编码与传输能力</td><td>设备信息、网络信息、麦克风音频流（仅在您主动上麦或进入语音房间后）</td><td><a href="https://www.shengwang.cn/SDK-privacy-policy/">https://www.shengwang.cn/SDK-privacy-policy/</a></td></tr>
+            <tr><td>系统分享 share_plus</td><td>操作系统提供方</td><td>调起系统分享面板</td><td>您主动分享的文本、图片、二维码分享图或链接</td><td>不适用</td></tr>
+            <tr><td>本地通知 flutter_local_notifications</td><td>操作系统提供方</td><td>发帖上传完成、失败提醒和必要通知</td><td>通知标题、通知内容、通知权限状态</td><td>不适用</td></tr>
+          </table>
+
+          <h3>4. 信息展示与公开范围</h3>
+          <ul>
+            <li>您的昵称、头像、个人简介、所在地区、年龄、出生日期与时辰等，可能在个人主页、帖子、评论、消息和匹配页面展示；您可在隐私设置中关闭部分展示项。</li>
+            <li>您发布的社区内容、评论、回复、点赞/收藏状态、分享数据、话题和位置，可能被其他用户浏览、互动或分享。</li>
+            <li>您在群聊、部落或私信中的内容会向会话参与者展示。请勿发送身份证号、银行卡号、住址、验证码、病历、未成年人隐私等敏感信息。</li>
+            <li>八字排盘、体质问卷、舌象图片、余额、订单和咨询扣费记录默认不作为社区公开内容展示，除非您主动发布、截图分享或发送给他人。</li>
+          </ul>
+
+          <h3>5. 信息存储、缓存和传输</h3>
+          <ul>
+            <li>玄遇当前接口域名配置为 https://www.lingshu.uno，您的账号、社区、消息、订单和部分功能数据会传输至服务器处理。</li>
+            <li>应用会在本地保存协议同意状态、Token、用户 ID、是否完成问卷、今日运势缓存、今日养生缓存等，以保持登录和提升访问速度。</li>
+            <li>发帖图片/视频会通过预签名上传链接上传至服务器或对象存储，并生成可访问的媒体地址；视频可能生成封面图。</li>
+            <li>我们会在实现服务目的所需期限内保存信息。法律法规要求留存、处理投诉纠纷、账号安全或风控所必需的信息，可能在必要期限内继续保存。</li>
+          </ul>
+
+          <h3>6. 我们如何共享、转让和披露信息</h3>
+          <ul>
+            <li>我们不会出售您的个人信息。</li>
+            <li>为实现地图、语音、支付、分享、通知、上传、客服和风控等功能，我们可能向第三方服务提供商提供实现该功能所必需的最小信息。</li>
+            <li>根据法律法规、司法机关、行政机关、监管部门要求，或为维护用户、平台、公众的人身财产安全和合法权益，我们可能依法提供相关信息。</li>
+            <li>如发生合并、分立、收购、资产转让等情形，我们会要求新的持有方继续遵守本政策，否则将重新征得您的授权同意。</li>
+          </ul>
+
+          <h3>7. 安全措施</h3>
+          <p>我们会通过身份校验、权限控制、接口鉴权、日志记录、数据备份、异常监测、上传限制和内容审核等方式保护您的信息安全。但互联网环境无法保证绝对安全，请您妥善保管账号、密码、验证码，不轻信陌生人私信、语音或外部链接。</p>
+
+          <h3>8. 您如何管理个人信息</h3>
+          <ul>
+            <li>资料修改：可在“我的-编辑资料”修改昵称、头像、简介等资料。</li>
+            <li>隐私展示：可在“设置-隐私与展示”管理简介、定位、年龄、出生日期和时辰的可见性。</li>
+            <li>内容管理：可删除自己有权限管理的帖子、评论或回复；已被他人截图、缓存或外部分享的内容，平台无法完全控制。</li>
+            <li>权限管理：可在系统设置中关闭相机、相册、麦克风、定位、通知等权限。</li>
+            <li>账号与数据：如需查询、更正、复制、删除个人信息，撤回同意或注销账号，可通过邮箱 2254741308@qq.com 提出请求。</li>
+          </ul>
+
+          <h3>9. 未成年人个人信息</h3>
+          <p>未成年人使用玄遇应取得监护人同意。我们会结合未成年人模式和功能限制保护未成年人体验。监护人如发现未成年人未经同意注册、发布、聊天、语音匹配或充值，可通过邮箱 2254741308@qq.com 联系我们，我们将依法核验并处理。</p>
+
+          <h3>10. 政策更新与联系</h3>
+          <p>当玄遇新增功能、调整第三方 SDK、改变个人信息处理目的或法律法规发生变化时，我们可能更新本政策。重大变更会通过应用内弹窗、公告、设置页或其他合理方式提示。若您不同意更新内容，可停止使用相关服务。</p>
+          <div class="legal-meta">运营主体：【河南省问灵科技有限公司】。联系方式：2254741308@qq.com。备案号：豫ICP备2026007950号-1A。如对隐私政策、个人信息处理、权限调用、第三方 SDK 或账号数据有疑问，可通过该邮箱联系我们。</div>
+        </div>
+      </details>
+    </section>
+
+    <div class="footer">
+      玄遇 App 功能应用描述 · HTML 展示文档<br>
+      <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener noreferrer">豫ICP备2026007950号-1A</a> · 联系方式：2254741308@qq.com
+    </div>
+  </main>
+</body>
+</html>

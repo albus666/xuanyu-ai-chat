@@ -1,0 +1,20 @@
+{
+  "lifeAchievements": [
+    { "id": "life_combo100", "name": "当世连击破百", "description": "本世单次连击达到 100", "reward": 200, "type": "combo", "threshold": 100 },
+    { "id": "life_text50", "name": "当世文案猎人", "description": "本世收集 50 条不同文案", "reward": 300, "type": "textCount", "threshold": 50 },
+    { "id": "life_level50", "name": "当世木鱼大师", "description": "本世木鱼等级达到 50", "reward": 500, "type": "level", "threshold": 50 },
+    { "id": "life_event10", "name": "当世事件体质", "description": "本世触发 10 次随机事件", "reward": 250, "type": "events", "threshold": 10 }
+  ],
+  "permanentAchievements": [
+    { "id": "perm_1000", "name": "初入佛门", "description": "累计总敲击达到 1000 次", "type": "totalTaps", "threshold": 1000 },
+    { "id": "perm_combo200", "name": "手速狂魔", "description": "单次连击达到 200", "type": "maxCombo", "threshold": 200 },
+    { "id": "perm_night", "name": "深夜敲鱼人", "description": "凌晨 2:00-5:00 单局敲击 100 次", "type": "nightSession", "threshold": 100 },
+    { "id": "perm_monday", "name": "周一摸鱼王", "description": "周一 9:00-11:00 单局敲击 200 次", "type": "mondaySession", "threshold": 200 },
+    { "id": "perm_streak7", "name": "持之以恒", "description": "连续 7 天每日至少敲击 1 次", "type": "dailyStreak", "threshold": 7 },
+    { "id": "perm_epic2", "name": "欧皇附体", "description": "连续 2 次敲击出史诗文案", "type": "epicStreak", "threshold": 2 },
+    { "id": "perm_workday", "name": "社畜认证", "description": "工作日 9:00-18:00 累计敲击 1000 次", "type": "workdayTaps", "threshold": 1000 },
+    { "id": "perm_rebirth1", "name": "首次转生", "description": "完成第 1 次轮回", "type": "reincarnation", "threshold": 1 },
+    { "id": "perm_rebirth10", "name": "十转成神", "description": "累计完成 10 次轮回", "type": "reincarnation", "threshold": 10 },
+    { "id": "perm_text100", "name": "文案收藏家", "description": "累计收集 100 条不同文案", "type": "textCollected", "threshold": 100 }
+  ]
+}

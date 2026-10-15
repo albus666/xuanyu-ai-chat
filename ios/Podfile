@@ -1,0 +1,316 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '16.0'
+
+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', {
+  'Debug' => :debug,
+  'Profile' => :release,
+  'Release' => :release,
+}
+
+def flutter_root
+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+  unless File.exist?(generated_xcode_build_settings_path)
+    raise "#{generated_xcode_build_settings_path} must exist. Run flutter pub get in the project directory."
+  end
+
+  File.foreach(generated_xcode_build_settings_path) do |line|
+    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+    return matches[1].strip if matches
+  end
+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}"
+end
+
+post_integrate do |installer|
+  # CocoaPods rewrites this script while integrating the user project, so apply
+  # the local tolerant version after integration has finished.
+  begin
+    pbxproj_path = File.join(File.dirname(__FILE__), 'Runner.xcodeproj', 'project.pbxproj')
+    if File.exist?(pbxproj_path)
+      pbx = File.read(pbxproj_path)
+      old_check = 'diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode \'outputs\' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n'
+      new_check = 'PODFILE_LOCK=\"${PODS_PODFILE_DIR_PATH:-$SRCROOT}/Podfile.lock\"; MANIFEST_LOCK=\"${PODS_ROOT:-$SRCROOT/Pods}/Manifest.lock\"; if [ -f \"$PODFILE_LOCK\" ] && [ -f \"$MANIFEST_LOCK\" ]; then diff \"$PODFILE_LOCK\" \"$MANIFEST_LOCK\" > /dev/null || true; fi\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n'
+      if pbx.include?(old_check)
+        pbx = pbx.gsub(old_check, new_check)
+        File.write(pbxproj_path, pbx)
+      end
+    end
+  rescue Errno::EACCES, Errno::EPERM
+  end
+end
+
+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+target 'Runner' do
+  # 高德 3D 地图 SDK。GitHub LFS quota may block vendoring the framework, so
+  # resolve the official CocoaPods package at the version verified on device.
+  pod 'AMap3DMap', '11.1.000'
+  # amap_flutter_location 3.0.0 still references language constants removed
+  # from newer AMapLocation releases. Keep the last known-compatible SDK.
+  pod 'AMapLocation', '2.11.0'
+
+  # flutter_image_compress_common imports these dependencies as Clang modules.
+  # CocoaPods otherwise exposes only header search paths for static library
+  # integration, which makes Xcode's dependency scanner reject the @import.
+  pod 'SDWebImage', :modular_headers => true
+  pod 'SDWebImageWebPCoder', :modular_headers => true
+
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  # 修复 SDWebImage 在旧版 SDK 下的编译错误（isHighDynamicRange / kCGImageSourceDecode*）
+  begin
+    sandbox = installer.sandbox.root
+    # 1) UIImage+Metadata.m: isHighDynamicRange 仅在 iOS 17+ SDK 存在
+    sd_metadata = File.join(sandbox, 'SDWebImage', 'SDWebImage', 'Core', 'UIImage+Metadata.m')
+    if File.exist?(sd_metadata)
+      File.chmod(0644, sd_metadata) rescue nil
+      text = File.read(sd_metadata)
+      old_snippet = '    if (@available(iOS 17, tvOS 17, watchOS 10, *)) {
+        return self.isHighDynamicRange;
+    } else {
+        return [SDImageCoderHelper CGImageIsHDR:self.CGImage];
+    }'
+      new_snippet = '#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 170000
+    if (@available(iOS 17, tvOS 17, watchOS 10, *)) {
+        return self.isHighDynamicRange;
+    } else
+#endif
+    {
+        return [SDImageCoderHelper CGImageIsHDR:self.CGImage];
+    }'
+      if text.include?(old_snippet) && !text.include?('__IPHONE_OS_VERSION_MAX_ALLOWED')
+        File.write(sd_metadata, text.sub(old_snippet, new_snippet))
+      end
+    end
+    # 2) SDImageIOAnimatedCoder.m: kCGImageSourceDecode* 用字符串字面量替代
+    sd_animated_coder = File.join(sandbox, 'SDWebImage', 'SDWebImage', 'Core', 'SDImageIOAnimatedCoder.m')
+    if File.exist?(sd_animated_coder)
+      File.chmod(0644, sd_animated_coder) rescue nil
+      coder_text = File.read(sd_animated_coder)
+      coder_text = coder_text.sub('            decodingOptions[(__bridge NSString *)kCGImageSourceDecodeRequest] = (__bridge NSString *)kCGImageSourceDecodeToHDR;', '            decodingOptions[@"kCGImageSourceDecodeRequest"] = @"kCGImageSourceDecodeToHDR";')
+      coder_text = coder_text.sub('            decodingOptions[(__bridge NSString *)kCGImageSourceDecodeRequest] = (__bridge NSString *)kCGImageSourceDecodeToSDR;', '            decodingOptions[@"kCGImageSourceDecodeRequest"] = @"kCGImageSourceDecodeToSDR";')
+      File.write(sd_animated_coder, coder_text)
+    end
+  rescue Errno::EACCES, Errno::EPERM
+    puts "\n[Podfile] 无法写入 Pods 目录，跳过 SDWebImage 补丁。请执行："
+    puts "  chmod -R u+w #{installer.sandbox.root}"
+    puts "  然后重新运行: pod install\n"
+  end
+
+  # 每次 pod install 后：让「Check Pods Manifest.lock」不因 diff 失败而中断构建
+  begin
+    pbxproj_path = File.join(File.dirname(__FILE__), 'Runner.xcodeproj', 'project.pbxproj')
+    if File.exist?(pbxproj_path)
+      pbx = File.read(pbxproj_path)
+      # 匹配 CocoaPods 写入的脚本（pbxproj 里是字面 \n）
+      old_check = 'diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode \'outputs\' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n'
+      new_check = 'PODFILE_LOCK=\"${PODS_PODFILE_DIR_PATH:-$SRCROOT}/Podfile.lock\"; MANIFEST_LOCK=\"${PODS_ROOT:-$SRCROOT/Pods}/Manifest.lock\"; if [ -f \"$PODFILE_LOCK\" ] && [ -f \"$MANIFEST_LOCK\" ]; then diff \"$PODFILE_LOCK\" \"$MANIFEST_LOCK\" > /dev/null || true; fi\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n'
+      if pbx.include?(old_check)
+        pbx = pbx.gsub(old_check, new_check)
+        File.write(pbxproj_path, pbx)
+      end
+    end
+  rescue Errno::EACCES, Errno::EPERM
+  end
+
+  # Swift-only pods expose their plugin classes with Swift-mangled Objective-C
+  # names. Flutter's ObjC registrant expects short ObjC class names, so provide
+  # small compatibility headers that dispatch via NSClassFromString.
+  begin
+    require 'fileutils'
+    compatibility_headers = {
+      'shared_preferences_foundation' => [
+        'SharedPreferencesPlugin.h',
+        '#import <Flutter/Flutter.h>
+
+#define SharedPreferencesPlugin ((Class<FlutterPlugin>)NSClassFromString(@"shared_preferences_foundation.SharedPreferencesPlugin"))
+'
+      ],
+      'url_launcher_ios' => [
+        'URLLauncherPlugin.h',
+        '#import <Flutter/Flutter.h>
+
+#define URLLauncherPlugin ((Class<FlutterPlugin>)NSClassFromString(@"url_launcher_ios.URLLauncherPlugin"))
+'
+      ],
+    }
+    compatibility_headers.each do |pod_name, (header_name, header_content)|
+      header_dir = File.join(installer.sandbox.root, 'Headers', 'Public', pod_name)
+      FileUtils.mkdir_p(header_dir)
+      header_path = File.join(header_dir, header_name)
+      File.write(header_path, header_content)
+
+      umbrella_path = File.join(header_dir, "#{pod_name}-umbrella.h")
+      if File.exist?(umbrella_path)
+        umbrella = File.read(umbrella_path)
+        import_line = "#import \"#{header_name}\""
+        unless umbrella.include?(import_line)
+          File.write(umbrella_path, "#{umbrella.rstrip}\n#{import_line}\n")
+        end
+      end
+    end
+  rescue Errno::EACCES, Errno::EPERM
+    puts "\n[Podfile] 无法写入 Swift 插件兼容头，跳过 shared_preferences/url_launcher 补丁。\n"
+  end
+
+  # AMap3DMap 11.1.000 的 umbrella header 漏了这几个公开头，Clang 会在
+  # archive 时报告 incomplete umbrella。补 import 即可，不改 SDK 二进制。
+  begin
+    amap_umbrella = File.join(installer.sandbox.root, 'AMap3DMap', 'MAMapKit.framework', 'Headers', 'MAMapKit.h')
+    if File.exist?(amap_umbrella)
+      File.chmod(0644, amap_umbrella) rescue nil
+      text = File.read(amap_umbrella)
+      missing_imports = [
+        '#import <MAMapKit/MATerrainOverlay.h>',
+        '#import <MAMapKit/MAMapSnapshot.h>',
+        '#import <MAMapKit/MATerrainOverlayRenderer.h>',
+      ]
+      additions = missing_imports.reject { |line| text.include?(line) }
+      unless additions.empty?
+        anchor = '#import <MAMapKit/MARouteOverlayModel.h>'
+        if text.include?(anchor)
+          text = text.sub(anchor, "#{anchor}\n#{additions.join("\n")}")
+        else
+          text = "#{text.rstrip}\n#{additions.join("\n")}\n"
+        end
+        File.write(amap_umbrella, text)
+      end
+    end
+  rescue Errno::EACCES, Errno::EPERM
+    puts "\n[Podfile] 无法写入 MAMapKit umbrella header，跳过高德 warning 补丁。\n"
+  end
+
+  # 三方二进制 SDK 的调试符号不完整，Release/Profile 生成 dSYM 时会刷出
+  # 数万条 "could not find object file symbol" 警告，并显著拖慢归档。
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+    config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = 'YES'
+    config.build_settings['SWIFT_SUPPRESS_WARNINGS'] = 'YES'
+    config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+    config.build_settings['CLANG_WARN_STRICT_PROTOTYPES'] = 'NO'
+    config.build_settings['CLANG_WARN_UNGUARDED_AVAILABILITY'] = 'NO'
+    if ['Release', 'Profile'].include?(config.name)
+      config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+    end
+  end
+
+  installer.pods_project.targets.each do |target|
+    flutter_additional_ios_build_settings(target)
+    # Third-party pods currently emit many SDK/header warnings with Xcode 15:
+    # old deployment targets, deprecated APIs, documentation comments, and
+    # static-analysis noise from vendored C/C++ code. Keep Runner warnings
+    # visible, but quiet generated/vendor pod targets.
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+      config.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = 'YES'
+      config.build_settings['SWIFT_SUPPRESS_WARNINGS'] = 'YES'
+      config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+      config.build_settings['CLANG_WARN_STRICT_PROTOTYPES'] = 'NO'
+      config.build_settings['CLANG_WARN_UNGUARDED_AVAILABILITY'] = 'NO'
+      if ['Release', 'Profile'].include?(config.name)
+        config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+      end
+    end
+    # 让 fluwx 能找到 WechatOpenSDK 的 WXApi.h（xcframework 内）
+    if target.name == 'fluwx'
+      wechat_headers = [
+        '${PODS_ROOT}/WechatOpenSDK-XCFramework/WechatOpenSDK.xcframework/ios-arm64/WechatOpenSDK.framework/Headers',
+        '${PODS_ROOT}/WechatOpenSDK-XCFramework/WechatOpenSDK.xcframework/ios-arm64_x86_64-simulator/WechatOpenSDK.framework/Headers',
+      ]
+      target.build_configurations.each do |config|
+        existing = config.build_settings['HEADER_SEARCH_PATHS']
+        existing = [existing] if existing.is_a?(String)
+        existing = existing ? existing.dup : ['$(inherited)']
+        config.build_settings['HEADER_SEARCH_PATHS'] = existing + wechat_headers
+      end
+    end
+    # 让 tobias 能找到 AlipaySDK：用 Podfile 所在 ios 目录算绝对路径，避免 PODS_ROOT 解析问题
+    if target.name == 'tobias'
+      ios_dir = File.dirname(File.expand_path(__FILE__))
+      alipay_base = File.join(ios_dir, '.symlinks', 'plugins', 'tobias', 'ios', 'AlipaySDK', 'Standard', 'AlipaySDK.xcframework')
+      if Dir.exist?(alipay_base)
+        alipay_arm64 = File.join(alipay_base, 'ios-arm64', 'AlipaySDK.framework', 'Headers')
+        alipay_sim = File.join(alipay_base, 'ios-arm64_x86_64-simulator', 'AlipaySDK.framework', 'Headers')
+        alipay_framework_dirs = [
+          File.join(alipay_base, 'ios-arm64'),
+          File.join(alipay_base, 'ios-arm64_x86_64-simulator'),
+        ]
+        alipay_headers = [alipay_arm64, alipay_sim, '$(PODS_XCFRAMEWORKS_BUILD_DIR)/tobias/normal/AlipaySDK.framework/Headers']
+        target.build_configurations.each do |config|
+          ex_f = config.build_settings['FRAMEWORK_SEARCH_PATHS']
+          ex_f = [ex_f] if ex_f.is_a?(String)
+          ex_f = ex_f ? ex_f.dup : ['$(inherited)']
+          config.build_settings['FRAMEWORK_SEARCH_PATHS'] = ex_f + alipay_framework_dirs
+          ex_h = config.build_settings['HEADER_SEARCH_PATHS']
+          ex_h = [ex_h] if ex_h.is_a?(String)
+          ex_h = ex_h ? ex_h.dup : ['$(inherited)']
+          config.build_settings['HEADER_SEARCH_PATHS'] = ex_h + alipay_headers
+        end
+      end
+      # 同时把插件里的 #import <AlipaySDK/AlipaySDK.h> 改为 "AlipaySDK.h"，仅靠 HEADER_SEARCH_PATHS 即可找到
+      plugin_m = File.join(ios_dir, '.symlinks', 'plugins', 'tobias', 'ios', 'Classes', 'TobiasPlugin.m')
+      if File.exist?(plugin_m)
+        text = File.read(plugin_m)
+        if text.include?('#import <AlipaySDK/AlipaySDK.h>')
+          File.write(plugin_m, text.gsub('#import <AlipaySDK/AlipaySDK.h>', '#import "AlipaySDK.h"'))
+        end
+      end
+    end
+    # 让 flutter_compass 的 ObjC 能找到 Swift 生成的 flutter_compass-Swift.h
+    if target.name == 'flutter_compass'
+      target.build_configurations.each do |config|
+        existing = config.build_settings['HEADER_SEARCH_PATHS']
+        existing = [existing] if existing.is_a?(String)
+        existing = existing ? existing.dup : ['$(inherited)']
+        config.build_settings['HEADER_SEARCH_PATHS'] = existing + ['$(CONFIGURATION_BUILD_DIR)', '$(DERIVED_FILE_DIR)']
+      end
+      plugin_m = File.join(File.dirname(__FILE__), '.symlinks', 'plugins', 'flutter_compass', 'ios', 'Classes', 'FlutterCompassPlugin.m')
+      if File.exist?(plugin_m)
+        text = File.read(plugin_m)
+        if text.include?('<flutter_compass/flutter_compass-Swift.h>')
+          File.write(plugin_m, text.gsub('#import <flutter_compass/flutter_compass-Swift.h>', '#import "flutter_compass-Swift.h"'))
+        end
+      end
+    end
+  end
+
+  # CocoaPods sometimes points Runner's Swift flags at generated modulemaps in
+  # BUILD_DIR for Swift static-library pods. During archive, Runner can compile
+  # before those files exist, so point the app target at the stable public
+  # modulemaps CocoaPods has already created under Pods/Headers/Public.
+  begin
+    support_dirs = [
+      File.join(installer.sandbox.root, 'Target Support Files', 'Pods-Runner'),
+      File.join(installer.sandbox.root, 'Target Support Files', 'Pods-RunnerTests'),
+    ]
+    modulemap_pods = %w[
+      flutter_compass
+      shared_preferences_foundation
+      url_launcher_ios
+    ]
+
+    support_dirs.each do |support_dir|
+      Dir.glob(File.join(support_dir, '*.xcconfig')).each do |xcconfig|
+        text = File.read(xcconfig)
+        modulemap_pods.each do |pod_name|
+          text = text.gsub(
+            "${PODS_CONFIGURATION_BUILD_DIR}/#{pod_name}/#{pod_name}.modulemap",
+            "${PODS_ROOT}/Headers/Public/#{pod_name}/#{pod_name}.modulemap"
+          )
+        end
+        File.write(xcconfig, text)
+      end
+    end
+  rescue Errno::EACCES, Errno::EPERM
+    puts "\n[Podfile] 无法写入 Pods xcconfig，跳过 Runner modulemap 路径修复。\n"
+  end
+end

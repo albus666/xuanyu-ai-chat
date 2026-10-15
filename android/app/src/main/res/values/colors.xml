@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="launch_background">#F6FAFF</color>
+	<color name="ic_launcher_background">#7044CF</color>
+    <color name="privacy_consent_surface">#FFFFFFFF</color>
+    <color name="privacy_consent_primary">#FF1AC4C4</color>
+    <color name="privacy_consent_text">#FF222222</color>
+    <color name="privacy_consent_secondary">#FF4A5568</color>
+</resources>

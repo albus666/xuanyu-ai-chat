@@ -1,0 +1,1007 @@
+{
+  "generator": "built-in image_gen",
+  "referenceRole": "The supplied screenshot was used only as a broad mood/category reference; no character, UI, text, logo, costume, or layout was copied.",
+  "sharedPrompt": "Original premium 星海幻想 portrait; adult East Asian fantasy character; polished painterly 3D Chinese animation style; true circular-crop composition; face, complete hair, ears, and key ornaments kept inside the central 74% safe area; outer 13% primarily background; no text, UI, logo, watermark, border, sexualized clothing, real-person likeness, or recognizable IP.",
+  "items": [
+    {
+      "index": 1,
+      "code": "starsea_tide_watcher",
+      "name": "星潮守望者",
+      "presentation": "neutral",
+      "subject": "an adult androgynous East Asian fantasy character with short silver-blue layered hair, calm warm gaze, sea-glass ornament and refined midnight-blue high collar",
+      "detail": "",
+      "scene": "luminous deep-blue cosmic ocean, a crescent of stardust and translucent wave light",
+      "palette": "sapphire, teal, silver, champagne gold"
+    },
+    {
+      "index": 2,
+      "code": "starsea_moon_whisper",
+      "name": "月桂星语者",
+      "presentation": "female",
+      "subject": "an adult East Asian fantasy woman with a neat lavender-silver bob, gentle confident eyes, a tiny moon-laurel hairpiece and a refined pearl-white celestial mantle",
+      "detail": "",
+      "scene": "a luminous lavender nebula with a thin moon halo and soft drifting star petals",
+      "palette": "lavender, moon white, indigo, tiny champagne gold"
+    },
+    {
+      "index": 3,
+      "code": "starsea_comet_guard",
+      "name": "赤霞彗星",
+      "presentation": "male",
+      "subject": "an adult East Asian fantasy man with dark auburn swept hair, steady kind expression, subtle comet-shaped ear cuff and an elegant deep red celestial jacket",
+      "detail": "",
+      "scene": "a crimson-gold comet arc across a midnight star ocean, energetic but uncluttered",
+      "palette": "deep red, midnight blue, warm gold, ivory highlights"
+    },
+    {
+      "index": 4,
+      "code": "starsea_emerald_aurora",
+      "name": "绿曜森灵",
+      "presentation": "female",
+      "subject": "an adult East Asian fantasy woman with long ink-black hair carrying muted emerald highlights, serene smile, delicate leaf-shaped crystal ornaments and a high-neck jade robe",
+      "detail": "",
+      "scene": "emerald aurora flowing above a quiet cosmic forest lake with sparse constellations",
+      "palette": "emerald, teal, dark navy, soft silver"
+    },
+    {
+      "index": 5,
+      "code": "starsea_solar_ring",
+      "name": "金环逐光",
+      "presentation": "male",
+      "subject": "an adult East Asian fantasy man with short ivory-gold hair, clear optimistic gaze, minimal sun-disc brooch and a sophisticated navy-and-cream ceremonial collar",
+      "detail": "",
+      "scene": "a radiant but soft golden planetary ring floating behind him over a cobalt star field",
+      "palette": "cobalt, ivory, muted gold, pale cyan"
+    },
+    {
+      "index": 6,
+      "code": "starsea_amethyst_dream",
+      "name": "紫晶梦行",
+      "presentation": "female",
+      "subject": "an adult East Asian fantasy woman with long soft black hair and amethyst tips, thoughtful warm eyes, geometric crystal hairpins and an elegant charcoal-violet high collar",
+      "detail": "",
+      "scene": "translucent amethyst constellations and a quiet dreamy galaxy with gentle mist",
+      "palette": "amethyst, charcoal blue, silver, pale rose light"
+    },
+    {
+      "index": 7,
+      "code": "starsea_frost_comet",
+      "name": "霜尾彗光",
+      "presentation": "male",
+      "subject": "an adult East Asian fantasy man with cropped ice-blue hair, quiet smile, frost-comet ear ornament and a silver-gray high collar",
+      "detail": "",
+      "scene": "a pale cyan comet tail sweeping across a clear navy cosmos",
+      "palette": "ice blue, navy, silver, white"
+    },
+    {
+      "index": 8,
+      "code": "starsea_rose_nebula",
+      "name": "玫云星愿",
+      "presentation": "female",
+      "subject": "an adult East Asian fantasy woman with warm chestnut waves, compassionate eyes, a tiny rose-gold star crown and a dusky-rose celestial dress collar",
+      "detail": "",
+      "scene": "a soft rose nebula opening into a bright starlit horizon",
+      "palette": "dusty rose, indigo, rose gold, pearl"
+    },
+    {
+      "index": 9,
+      "code": "starsea_celadon_moon",
+      "name": "青瓷月航",
+      "presentation": "neutral",
+      "subject": "an adult androgynous East Asian fantasy character with dark teal chin-length hair, composed gaze, celadon moon clasp and a clean ivory robe collar",
+      "detail": "",
+      "scene": "a celadon crescent vessel sailing across misty stars",
+      "palette": "celadon, ivory, deep teal, muted gold"
+    },
+    {
+      "index": 10,
+      "code": "starsea_blue_whale",
+      "name": "鲸歌蓝境",
+      "presentation": "male",
+      "subject": "an adult East Asian fantasy man with ink-blue medium hair, gentle introspective eyes, subtle whale-tail ear cuff and a dark cobalt mantle",
+      "detail": "",
+      "scene": "a translucent celestial whale swimming through blue constellations behind him",
+      "palette": "cobalt, azure, silver, soft turquoise"
+    },
+    {
+      "index": 11,
+      "code": "starsea_dawn_orbit",
+      "name": "晨曦星轨",
+      "presentation": "female",
+      "subject": "an adult East Asian fantasy woman with pale apricot-gold hair in a loose braid, bright steady gaze, small dawn-crystal pins and a cream-gold collar",
+      "detail": "",
+      "scene": "sunrise light meeting a quiet star field with fine orbital lines",
+      "palette": "apricot, cream, sky blue, soft gold"
+    },
+    {
+      "index": 12,
+      "code": "starsea_obsidian_moon",
+      "name": "玄月静影",
+      "presentation": "male",
+      "subject": "an adult East Asian fantasy man with neat black hair and one silver streak, restrained kind expression, black moonstone ornament and a matte charcoal robe",
+      "detail": "",
+      "scene": "an obsidian crescent surrounded by sparse silver stars and soft blue fog",
+      "palette": "charcoal, midnight blue, silver, cool white"
+    },
+    {
+      "index": 13,
+      "code": "starsea_mint_planet",
+      "name": "薄荷行星",
+      "presentation": "female",
+      "subject": "an adult East Asian fantasy woman with short mint-gray hair, playful calm eyes, miniature planet hairpins and a pale seafoam high collar",
+      "detail": "",
+      "scene": "small translucent mint planets orbiting in a bright airy cosmos",
+      "palette": "mint, seafoam, pale blue, champagne"
+    },
+    {
+      "index": 14,
+      "code": "starsea_copper_eclipse",
+      "name": "铜辉蚀日",
+      "presentation": "neutral",
+      "subject": "an adult androgynous East Asian fantasy character with textured dark brown hair, strong serene gaze, understated copper eclipse brooch and a midnight coat",
+      "detail": "",
+      "scene": "a warm copper eclipse ring over deep indigo space",
+      "palette": "copper, indigo, charcoal, amber"
+    },
+    {
+      "index": 15,
+      "code": "starsea_snow_lantern",
+      "name": "雪夜星灯",
+      "presentation": "female",
+      "subject": "an adult East Asian fantasy woman with snow-white shoulder-length hair, tender gaze, tiny lantern-shaped crystal earrings and a soft blue-white cloak collar",
+      "detail": "",
+      "scene": "a floating star lantern illuminating gentle snow-like stardust",
+      "palette": "snow white, powder blue, navy, warm amber"
+    },
+    {
+      "index": 16,
+      "code": "starsea_coral_meteor",
+      "name": "珊瑚流星",
+      "presentation": "male",
+      "subject": "an adult East Asian fantasy man with coral-brown tousled hair, open friendly expression, small meteor clasp and a refined blue-gray jacket",
+      "detail": "",
+      "scene": "coral-colored meteor trails crossing a teal night ocean",
+      "palette": "coral, teal, navy, pale gold"
+    },
+    {
+      "index": 17,
+      "code": "starsea_017",
+      "name": "星砂聆音",
+      "presentation": "neutral",
+      "subject": "short pearl-gray hair with soft side bangs",
+      "detail": "a shell-star ear pin and a pale blue celestial collar",
+      "scene": "fine star sand floating over a tranquil moonlit bay",
+      "palette": "pearl gray, powder blue, indigo, pale gold"
+    },
+    {
+      "index": 18,
+      "code": "starsea_018",
+      "name": "蓝曜巡梦",
+      "presentation": "male",
+      "subject": "long midnight-blue hair tied low",
+      "detail": "a blue crystal compass brooch and an elegant dark mantle",
+      "scene": "a bright azure planet above a quiet cosmic sea",
+      "palette": "azure, midnight blue, silver, teal"
+    },
+    {
+      "index": 19,
+      "code": "starsea_019",
+      "name": "月汐来信",
+      "presentation": "female",
+      "subject": "soft chestnut hair in a loose half-up style",
+      "detail": "a small tide-moon hair ornament and an ivory collar",
+      "scene": "a moonlit tide carrying tiny message-like points of light",
+      "palette": "moon white, ocean blue, chestnut, champagne"
+    },
+    {
+      "index": 20,
+      "code": "starsea_020",
+      "name": "银湾旅人",
+      "presentation": "neutral",
+      "subject": "short silver hair with an airy layered silhouette",
+      "detail": "a slim orbital clasp and a clean navy jacket",
+      "scene": "a silver galactic bay with distant luminous islands",
+      "palette": "silver, slate blue, navy, white"
+    },
+    {
+      "index": 21,
+      "code": "starsea_021",
+      "name": "琥珀星环",
+      "presentation": "male",
+      "subject": "warm black hair with amber highlights",
+      "detail": "an amber planetary pendant and a charcoal-gold collar",
+      "scene": "transparent amber rings crossing a velvety star field",
+      "palette": "amber, charcoal, deep blue, cream"
+    },
+    {
+      "index": 22,
+      "code": "starsea_022",
+      "name": "云母夜航",
+      "presentation": "female",
+      "subject": "shoulder-length smoky lilac hair",
+      "detail": "a mica crystal hair clip and a muted violet mantle",
+      "scene": "a quiet night voyage through layered lilac cloud nebulae",
+      "palette": "smoky lilac, navy, mica silver, ivory"
+    },
+    {
+      "index": 23,
+      "code": "starsea_023",
+      "name": "天青拾光",
+      "presentation": "neutral",
+      "subject": "neat dark teal hair with a single sky-blue streak",
+      "detail": "a minimal sky-rune clasp and a pale gray robe",
+      "scene": "clear cyan light gathering above a distant star horizon",
+      "palette": "sky blue, dark teal, pale gray, soft gold"
+    },
+    {
+      "index": 24,
+      "code": "starsea_024",
+      "name": "绛紫星冠",
+      "presentation": "male",
+      "subject": "long black hair with restrained burgundy ends",
+      "detail": "a tiny purple crown crystal and a high-neck black robe",
+      "scene": "a deep violet constellation crown with scattered red stars",
+      "palette": "burgundy, violet, black-blue, silver"
+    },
+    {
+      "index": 25,
+      "code": "starsea_025",
+      "name": "白鲸眠歌",
+      "presentation": "female",
+      "subject": "fluffy ice-white hair with soft volume",
+      "detail": "a white-whale shaped ear cuff and a midnight cape collar",
+      "scene": "a gentle white celestial whale sleeping among blue clouds",
+      "palette": "ice white, cobalt, cloud blue, pearl"
+    },
+    {
+      "index": 26,
+      "code": "starsea_026",
+      "name": "极昼花火",
+      "presentation": "neutral",
+      "subject": "short honey-blond hair swept back",
+      "detail": "a small aurora-flare brooch and an ivory navy coat",
+      "scene": "a bright polar-day aurora blooming like restrained fireworks",
+      "palette": "honey gold, turquoise, navy, ivory"
+    },
+    {
+      "index": 27,
+      "code": "starsea_027",
+      "name": "雾海灯塔",
+      "presentation": "male",
+      "subject": "long ink hair in a clean low braid",
+      "detail": "a lighthouse crystal earring and a sea-gray robe collar",
+      "scene": "one warm cosmic lighthouse above misty indigo water",
+      "palette": "ink black, indigo, fog gray, warm amber"
+    },
+    {
+      "index": 28,
+      "code": "starsea_028",
+      "name": "冰川星屿",
+      "presentation": "female",
+      "subject": "cropped silver-blue hair",
+      "detail": "an ice-island clasp and a structured blue-white jacket",
+      "scene": "floating glacier islands beneath a crisp field of stars",
+      "palette": "ice blue, white, cobalt, graphite"
+    },
+    {
+      "index": 29,
+      "code": "starsea_029",
+      "name": "晴蓝占星",
+      "presentation": "neutral",
+      "subject": "soft ash-brown bob hair",
+      "detail": "a delicate astrolabe hair pin and a pale cyan collar",
+      "scene": "a bright clean observatory sky with thin constellation paths",
+      "palette": "ash brown, cyan, pearl, navy"
+    },
+    {
+      "index": 30,
+      "code": "starsea_030",
+      "name": "金雾月台",
+      "presentation": "male",
+      "subject": "long pale-gold hair tied with a simple ribbon",
+      "detail": "a moon-platform pendant and an elegant cream robe",
+      "scene": "a golden mist station suspended above a calm galaxy",
+      "palette": "pale gold, cream, dusty blue, soft gray"
+    },
+    {
+      "index": 31,
+      "code": "starsea_031",
+      "name": "碧落流萤",
+      "presentation": "female",
+      "subject": "short moss-teal hair with gentle curls",
+      "detail": "a firefly crystal earring and a jade-dark collar",
+      "scene": "teal fireflies forming a constellation over a cosmic garden",
+      "palette": "jade, teal, midnight blue, light gold"
+    },
+    {
+      "index": 32,
+      "code": "starsea_032",
+      "name": "赤月回声",
+      "presentation": "neutral",
+      "subject": "dark auburn hair with a refined side part",
+      "detail": "a small red-moon pin and a black-red ceremonial collar",
+      "scene": "a muted red moon reflecting in a black star ocean",
+      "palette": "wine red, black-blue, copper, ivory"
+    },
+    {
+      "index": 33,
+      "code": "starsea_033",
+      "name": "星芒织梦",
+      "presentation": "male",
+      "subject": "long silver-black hair with subtle braids",
+      "detail": "a woven star brooch and a graphite mantle",
+      "scene": "fine starlight threads forming a soft dream canopy",
+      "palette": "silver, graphite, midnight, lavender"
+    },
+    {
+      "index": 34,
+      "code": "starsea_034",
+      "name": "海盐银河",
+      "presentation": "female",
+      "subject": "short sea-salt gray hair with tousled texture",
+      "detail": "a tiny wave-star cuff and a navy sea coat",
+      "scene": "a pale salt-blue galaxy curling into gentle ocean foam",
+      "palette": "salt gray, sea blue, navy, white"
+    },
+    {
+      "index": 35,
+      "code": "starsea_035",
+      "name": "青鸟逐月",
+      "presentation": "neutral",
+      "subject": "dark blue hair in a neat layered cut",
+      "detail": "a moon-chasing bluebird pin and a celadon collar",
+      "scene": "a small luminous bluebird crossing a large quiet crescent",
+      "palette": "celadon, blue, moon white, dark teal"
+    },
+    {
+      "index": 36,
+      "code": "starsea_036",
+      "name": "紫藤星雨",
+      "presentation": "male",
+      "subject": "long deep-violet hair with soft transparent ribbons",
+      "detail": "a wisteria crystal comb and a midnight violet collar",
+      "scene": "violet star rain falling through sparse wisteria-like light",
+      "palette": "deep violet, lilac, navy, silver"
+    },
+    {
+      "index": 37,
+      "code": "starsea_037",
+      "name": "月晕拾贝",
+      "presentation": "female",
+      "subject": "soft pearl-black hair with sea-blue ends",
+      "detail": "a moon-shell pin and ivory-blue collar",
+      "scene": "a luminous moon halo over a shore of tiny cosmic shells",
+      "palette": "moon white, pearl black, sea blue, champagne"
+    },
+    {
+      "index": 38,
+      "code": "starsea_038",
+      "name": "星蓝琴师",
+      "presentation": "male",
+      "subject": "long navy hair tied with a slim silver cord",
+      "detail": "a small celestial harp clasp and refined indigo robe",
+      "scene": "quiet blue sound waves turning into stars",
+      "palette": "sapphire, indigo, silver, pale cyan"
+    },
+    {
+      "index": 39,
+      "code": "starsea_039",
+      "name": "银河候鸟",
+      "presentation": "neutral",
+      "subject": "short ash-gray wind-swept hair",
+      "detail": "a migrating star-bird ear cuff and graphite coat",
+      "scene": "a line of silver galaxy birds crossing dawn space",
+      "palette": "ash gray, navy, silver, apricot light"
+    },
+    {
+      "index": 40,
+      "code": "starsea_040",
+      "name": "琉璃天穹",
+      "presentation": "female",
+      "subject": "shoulder-length crystal-blue hair",
+      "detail": "a glass-sky ornament and clean white mantle",
+      "scene": "a translucent glass firmament with prismatic stars",
+      "palette": "crystal blue, white, lilac, silver"
+    },
+    {
+      "index": 41,
+      "code": "starsea_041",
+      "name": "暮金寻路",
+      "presentation": "male",
+      "subject": "dark brown layered hair with muted gold tips",
+      "detail": "a pathfinder star brooch and deep green collar",
+      "scene": "a warm gold trail through a dusky cosmic valley",
+      "palette": "dusky green, muted gold, navy, cream"
+    },
+    {
+      "index": 42,
+      "code": "starsea_042",
+      "name": "青焰观星",
+      "presentation": "neutral",
+      "subject": "short ink hair with subtle teal flame highlights",
+      "detail": "a tiny observatory lens pin and black-jade robe",
+      "scene": "a controlled cyan stellar flame beside a brass astrolabe",
+      "palette": "cyan, black jade, brass, deep blue"
+    },
+    {
+      "index": 43,
+      "code": "starsea_043",
+      "name": "银狐星眠",
+      "presentation": "female",
+      "subject": "long silver-white hair with soft fox-ear-shaped hair ornaments that are clearly jewelry, not animal anatomy",
+      "detail": "a frost star clasp and pale gray mantle",
+      "scene": "a sleepy silver fox constellation in quiet blue space",
+      "palette": "silver, frost blue, pearl, navy"
+    },
+    {
+      "index": 44,
+      "code": "starsea_044",
+      "name": "海月浮光",
+      "presentation": "male",
+      "subject": "dark blue wavy hair",
+      "detail": "a sea-moon crystal earring and teal silk collar",
+      "scene": "a giant pale moon reflected as floating light on cosmic water",
+      "palette": "teal, moon white, dark blue, silver"
+    },
+    {
+      "index": 45,
+      "code": "starsea_045",
+      "name": "晨星誓约",
+      "presentation": "neutral",
+      "subject": "short warm blond hair",
+      "detail": "a small morning-star brooch and navy-cream formal collar",
+      "scene": "one bright morning star above a soft cobalt horizon",
+      "palette": "warm blond, cobalt, cream, gold"
+    },
+    {
+      "index": 46,
+      "code": "starsea_046",
+      "name": "紫雾回廊",
+      "presentation": "female",
+      "subject": "long smoky-violet hair in a low ponytail",
+      "detail": "a mist-corridor crystal pin and charcoal violet robe",
+      "scene": "layered violet nebula arches receding into starlight",
+      "palette": "smoky violet, charcoal, silver, lilac"
+    },
+    {
+      "index": 47,
+      "code": "starsea_047",
+      "name": "星尘花冠",
+      "presentation": "male",
+      "subject": "soft chestnut bob hair",
+      "detail": "a restrained crown of five tiny star crystals and ivory collar",
+      "scene": "fine rose-gold stardust blooming behind the head",
+      "palette": "chestnut, rose gold, indigo, ivory"
+    },
+    {
+      "index": 48,
+      "code": "starsea_048",
+      "name": "苍穹信使",
+      "presentation": "neutral",
+      "subject": "neat blue-black hair",
+      "detail": "a wing-shaped messenger clasp and dark cyan jacket",
+      "scene": "a slender comet-letter crossing a clear celestial sky",
+      "palette": "blue black, cyan, silver, white"
+    },
+    {
+      "index": 49,
+      "code": "starsea_049",
+      "name": "月桂潮声",
+      "presentation": "female",
+      "subject": "long pale brown hair with a loose side braid",
+      "detail": "a laurel-moon pin and sea-gray collar",
+      "scene": "moonlit laurel leaves drifting over a star tide",
+      "palette": "pale brown, sea gray, moon white, teal"
+    },
+    {
+      "index": 50,
+      "code": "starsea_050",
+      "name": "晶蓝极光",
+      "presentation": "male",
+      "subject": "short icy lavender hair",
+      "detail": "a crystal aurora ear ornament and structured navy robe",
+      "scene": "faceted blue aurora ribbons over a clean night sky",
+      "palette": "icy lavender, crystal blue, navy, silver"
+    },
+    {
+      "index": 51,
+      "code": "starsea_051",
+      "name": "暖星归途",
+      "presentation": "neutral",
+      "subject": "warm copper-brown hair",
+      "detail": "a home-star pendant and soft cream-blue mantle",
+      "scene": "a welcoming amber star path leading across a gentle galaxy",
+      "palette": "copper, amber, cream, midnight blue"
+    },
+    {
+      "index": 52,
+      "code": "starsea_052",
+      "name": "深海星门",
+      "presentation": "female",
+      "subject": "long black hair with cobalt rim light",
+      "detail": "a minimal star-gate clasp and matte midnight collar",
+      "scene": "a deep-sea blue portal opening into a luminous galaxy",
+      "palette": "black, cobalt, teal, silver"
+    },
+    {
+      "index": 53,
+      "code": "starsea_053",
+      "name": "云海星桥",
+      "presentation": "male",
+      "subject": "short cloud-gray layered hair",
+      "detail": "a bridge-shaped silver clasp and blue-white collar",
+      "scene": "a luminous star bridge spanning soft clouds",
+      "palette": "cloud gray, sky blue, silver, navy"
+    },
+    {
+      "index": 54,
+      "code": "starsea_054",
+      "name": "蓝晶祈愿",
+      "presentation": "female",
+      "subject": "long sapphire hair with delicate braids",
+      "detail": "a blue crystal wishing pendant and ivory mantle",
+      "scene": "a crystalline blue star well glowing gently",
+      "palette": "sapphire, crystal blue, ivory, champagne"
+    },
+    {
+      "index": 55,
+      "code": "starsea_055",
+      "name": "月蚀玫瑰",
+      "presentation": "neutral",
+      "subject": "dark wine-red bob hair",
+      "detail": "a rose-eclipse pin and charcoal velvet collar",
+      "scene": "a restrained red eclipse behind translucent cosmic roses",
+      "palette": "wine red, charcoal, indigo, muted gold"
+    },
+    {
+      "index": 56,
+      "code": "starsea_056",
+      "name": "星河纸鸢",
+      "presentation": "male",
+      "subject": "warm black hair tied in a high simple ponytail",
+      "detail": "a tiny kite-star ear cuff and clean cyan robe",
+      "scene": "a celestial paper kite made of light above the galaxy",
+      "palette": "cyan, navy, warm white, soft gold"
+    },
+    {
+      "index": 57,
+      "code": "starsea_057",
+      "name": "银砂海岸",
+      "presentation": "female",
+      "subject": "short silver-beige hair with wind texture",
+      "detail": "a sand-star brooch and pale ocean jacket",
+      "scene": "a silver sand shoreline beneath a broad quiet sky",
+      "palette": "silver beige, ocean blue, pearl, slate"
+    },
+    {
+      "index": 58,
+      "code": "starsea_058",
+      "name": "珊蓝秘境",
+      "presentation": "neutral",
+      "subject": "long blue-black hair with coral highlights",
+      "detail": "a coral crystal comb and teal high collar",
+      "scene": "a hidden coral-blue cosmic reef with soft light",
+      "palette": "coral, teal, cobalt, pearl"
+    },
+    {
+      "index": 59,
+      "code": "starsea_059",
+      "name": "极光信笺",
+      "presentation": "male",
+      "subject": "pale cyan shoulder-length hair",
+      "detail": "a tiny letter-shaped aurora clasp and white-gray mantle",
+      "scene": "an aurora ribbon carrying small star-like letters",
+      "palette": "pale cyan, mint, lavender, navy"
+    },
+    {
+      "index": 60,
+      "code": "starsea_060",
+      "name": "星夜茶会",
+      "presentation": "female",
+      "subject": "soft chestnut curls",
+      "detail": "a small teacup constellation brooch and cream collar",
+      "scene": "a whimsical but elegant night tea table among stars",
+      "palette": "chestnut, cream, midnight blue, warm gold"
+    },
+    {
+      "index": 61,
+      "code": "starsea_061",
+      "name": "月轮剑心",
+      "presentation": "neutral",
+      "subject": "short black hair with a moon-white fringe",
+      "detail": "a slim lunar-wheel ornament and structured dark robe",
+      "scene": "a bright moon wheel with subtle sword-like light rays, peaceful not violent",
+      "palette": "black, moon white, deep teal, silver"
+    },
+    {
+      "index": 62,
+      "code": "starsea_062",
+      "name": "青星花园",
+      "presentation": "male",
+      "subject": "long dark teal hair",
+      "detail": "a botanical star pin and jade-ivory collar",
+      "scene": "a serene celestial garden of tiny blue blossoms",
+      "palette": "jade, cyan, navy, ivory"
+    },
+    {
+      "index": 63,
+      "code": "starsea_063",
+      "name": "彗尾旅者",
+      "presentation": "female",
+      "subject": "tousled ash-blue hair",
+      "detail": "a comet-tail clasp and graphite travel coat",
+      "scene": "a long pale comet route crossing layered blue space",
+      "palette": "ash blue, graphite, cobalt, white"
+    },
+    {
+      "index": 64,
+      "code": "starsea_064",
+      "name": "金星潮汐",
+      "presentation": "neutral",
+      "subject": "long warm blond hair with pearl braids",
+      "detail": "a gold-star tide pendant and navy cream mantle",
+      "scene": "golden starlight moving like a calm ocean tide",
+      "palette": "muted gold, navy, cream, pale aqua"
+    },
+    {
+      "index": 65,
+      "code": "starsea_065",
+      "name": "雾紫守梦",
+      "presentation": "male",
+      "subject": "smoky violet chin-length hair",
+      "detail": "a dream-guard crystal at the collar and matte indigo robe",
+      "scene": "protective rings of misty purple light around a small star",
+      "palette": "smoky violet, indigo, silver, pearl"
+    },
+    {
+      "index": 66,
+      "code": "starsea_066",
+      "name": "冰蓝歌者",
+      "presentation": "female",
+      "subject": "short glacier-blue hair",
+      "detail": "a music-note shaped crystal earring and white-blue high collar",
+      "scene": "blue starlight forming clean silent musical waves",
+      "palette": "glacier blue, white, navy, silver"
+    },
+    {
+      "index": 67,
+      "code": "starsea_067",
+      "name": "暮色星鲸",
+      "presentation": "neutral",
+      "subject": "long dark brown hair with mauve highlights",
+      "detail": "a whale-star pin and dusk-purple mantle",
+      "scene": "a giant gentle star whale emerging from twilight clouds",
+      "palette": "dusk purple, navy, brown, rose gold"
+    },
+    {
+      "index": 68,
+      "code": "starsea_068",
+      "name": "晨雾行星",
+      "presentation": "male",
+      "subject": "short mist-gray hair with pale gold tips",
+      "detail": "a tiny planet clasp and light cream jacket",
+      "scene": "a small dawn planet appearing through pearly fog",
+      "palette": "mist gray, cream, pale gold, soft blue"
+    },
+    {
+      "index": 69,
+      "code": "starsea_069",
+      "name": "月光邮差",
+      "presentation": "neutral",
+      "subject": "short silver-brown hair",
+      "detail": "a moon-letter brooch and navy post-style high collar",
+      "scene": "a glowing moon letter traveling across quiet space",
+      "palette": "silver brown, moon white, navy, pale gold"
+    },
+    {
+      "index": 70,
+      "code": "starsea_070",
+      "name": "蓝星舞者",
+      "presentation": "female",
+      "subject": "long vivid but refined blue hair in a flowing ponytail",
+      "detail": "a small orbit ribbon and clean pearl-blue collar",
+      "scene": "curved star trails suggesting graceful dance",
+      "palette": "royal blue, cyan, pearl, silver"
+    },
+    {
+      "index": 71,
+      "code": "starsea_071",
+      "name": "翡翠星尘",
+      "presentation": "male",
+      "subject": "soft black hair with emerald highlights",
+      "detail": "a jade dust crystal pin and deep green robe",
+      "scene": "emerald stardust rising from a cosmic garden",
+      "palette": "emerald, black blue, jade, pale gold"
+    },
+    {
+      "index": 72,
+      "code": "starsea_072",
+      "name": "曜金观潮",
+      "presentation": "neutral",
+      "subject": "short dark blond hair",
+      "detail": "a gold tide compass and charcoal navy jacket",
+      "scene": "golden planet light reflected on a midnight sea",
+      "palette": "muted gold, midnight blue, charcoal, cream"
+    },
+    {
+      "index": 73,
+      "code": "starsea_073",
+      "name": "银月眠云",
+      "presentation": "female",
+      "subject": "long silver hair in a loose braid",
+      "detail": "a sleeping moon cloud clip and pale lavender mantle",
+      "scene": "a crescent resting among soft luminous clouds",
+      "palette": "silver, pale lavender, cloud white, navy"
+    },
+    {
+      "index": 74,
+      "code": "starsea_074",
+      "name": "星海旅店",
+      "presentation": "male",
+      "subject": "neat dark brown bob hair",
+      "detail": "a tiny hotel-key star charm and teal cream collar",
+      "scene": "a welcoming little lighted inn floating in a galaxy",
+      "palette": "teal, cream, indigo, warm amber"
+    },
+    {
+      "index": 75,
+      "code": "starsea_075",
+      "name": "苍蓝花火",
+      "presentation": "neutral",
+      "subject": "short cobalt-black hair",
+      "detail": "a cyan firework clasp and structured blue coat",
+      "scene": "a refined burst of blue star fire behind the portrait",
+      "palette": "cobalt, cyan, black, silver"
+    },
+    {
+      "index": 76,
+      "code": "starsea_076",
+      "name": "紫晶潮汐",
+      "presentation": "female",
+      "subject": "long amethyst hair with fine braids",
+      "detail": "a tide crystal pendant and dark violet collar",
+      "scene": "violet crystal waves rolling under stars",
+      "palette": "amethyst, deep violet, silver, pale blue"
+    },
+    {
+      "index": 77,
+      "code": "starsea_077",
+      "name": "天鹅星港",
+      "presentation": "male",
+      "subject": "soft ivory hair swept back",
+      "detail": "a swan constellation ear cuff and navy-white mantle",
+      "scene": "a graceful white swan constellation above a star harbor",
+      "palette": "ivory, navy, white, champagne"
+    },
+    {
+      "index": 78,
+      "code": "starsea_078",
+      "name": "暮云彗迹",
+      "presentation": "neutral",
+      "subject": "shoulder-length smoky gray hair",
+      "detail": "a comet-mark pin and dusk blue robe",
+      "scene": "a delicate comet trace crossing layers of evening cloud",
+      "palette": "smoky gray, dusk blue, silver, mauve"
+    },
+    {
+      "index": 79,
+      "code": "starsea_079",
+      "name": "青瓷星梦",
+      "presentation": "female",
+      "subject": "short celadon hair with dark roots",
+      "detail": "a porcelain star clasp and ivory jade collar",
+      "scene": "a celadon porcelain-like moon in a tranquil dream sky",
+      "palette": "celadon, ivory, deep teal, muted gold"
+    },
+    {
+      "index": 80,
+      "code": "starsea_080",
+      "name": "北辰微光",
+      "presentation": "male",
+      "subject": "long ink-black hair with one blue strand",
+      "detail": "a north-star pin and graphite coat collar",
+      "scene": "one steady northern star glowing in sparse navy space",
+      "palette": "ink black, navy, silver, icy blue"
+    },
+    {
+      "index": 81,
+      "code": "starsea_081",
+      "name": "珊瑚月湾",
+      "presentation": "neutral",
+      "subject": "warm coral-brown wavy hair",
+      "detail": "a coral moon earring and sea-blue high collar",
+      "scene": "a calm coral crescent bay under a star field",
+      "palette": "coral, sea blue, cream, rose gold"
+    },
+    {
+      "index": 82,
+      "code": "starsea_082",
+      "name": "星雾书页",
+      "presentation": "female",
+      "subject": "short mist-lilac layered hair",
+      "detail": "a book-page star ornament and charcoal violet robe",
+      "scene": "translucent cosmic pages unfolding into nebula mist",
+      "palette": "mist lilac, charcoal violet, silver, white"
+    },
+    {
+      "index": 83,
+      "code": "starsea_083",
+      "name": "冰河祈星",
+      "presentation": "male",
+      "subject": "long glacier-white hair",
+      "detail": "a prayer-star crystal and clean cobalt mantle",
+      "scene": "an icy river carrying small hopeful stars",
+      "palette": "glacier white, cobalt, pale cyan, silver"
+    },
+    {
+      "index": 84,
+      "code": "starsea_084",
+      "name": "暖金银河",
+      "presentation": "neutral",
+      "subject": "short warm chestnut hair with golden rim light",
+      "detail": "a galaxy ring brooch and cream navy collar",
+      "scene": "a warm golden galaxy spiral on a clear blue night",
+      "palette": "warm gold, chestnut, navy, cream"
+    },
+    {
+      "index": 85,
+      "code": "starsea_085",
+      "name": "星月入怀",
+      "presentation": "female",
+      "subject": "long soft black hair with moon-white strands",
+      "detail": "a tiny moon-and-star clasp and ivory indigo collar",
+      "scene": "a small crescent and warm star resting close together",
+      "palette": "moon white, indigo, black, champagne"
+    },
+    {
+      "index": 86,
+      "code": "starsea_086",
+      "name": "碧海天琴",
+      "presentation": "neutral",
+      "subject": "short sea-green layered hair",
+      "detail": "a celestial harp pin and deep aqua jacket",
+      "scene": "fine harp strings made of light over a blue cosmic sea",
+      "palette": "aqua, cobalt, silver, ivory"
+    },
+    {
+      "index": 87,
+      "code": "starsea_087",
+      "name": "琉金星愿",
+      "presentation": "male",
+      "subject": "shoulder-length honey-gold hair",
+      "detail": "a wishing-star crystal and cream navy mantle",
+      "scene": "golden glass stars floating through clear midnight air",
+      "palette": "honey gold, cream, navy, pale cyan"
+    },
+    {
+      "index": 88,
+      "code": "starsea_088",
+      "name": "夜蓝飞羽",
+      "presentation": "female",
+      "subject": "long blue-black hair tied high",
+      "detail": "a feather-star ear cuff and matte midnight collar",
+      "scene": "one luminous blue feather gliding through the night sky",
+      "palette": "night blue, cobalt, silver, black"
+    },
+    {
+      "index": 89,
+      "code": "starsea_089",
+      "name": "月白珊瑚",
+      "presentation": "neutral",
+      "subject": "short pearl-white hair with coral tips",
+      "detail": "a moon-coral brooch and sea-gray robe",
+      "scene": "white coral branches framing a soft lunar glow",
+      "palette": "pearl white, coral, sea gray, blue"
+    },
+    {
+      "index": 90,
+      "code": "starsea_090",
+      "name": "星河听风",
+      "presentation": "male",
+      "subject": "dark teal medium hair with wind-swept ends",
+      "detail": "a listening-shell pendant and clean graphite teal collar",
+      "scene": "gentle wind rings carrying stars over the galaxy",
+      "palette": "dark teal, graphite, cyan, silver"
+    },
+    {
+      "index": 91,
+      "code": "starsea_091",
+      "name": "青岚光年",
+      "presentation": "female",
+      "subject": "long ink hair with misty cyan highlights",
+      "detail": "a light-year compass pin and jade-black mantle",
+      "scene": "cyan aurora bands stretching toward a distant star",
+      "palette": "cyan, jade black, navy, pale gold"
+    },
+    {
+      "index": 92,
+      "code": "starsea_092",
+      "name": "赤金长夜",
+      "presentation": "neutral",
+      "subject": "short auburn-black hair",
+      "detail": "a red-gold star clasp and elegant charcoal coat",
+      "scene": "a restrained red and gold constellation in a long dark night",
+      "palette": "red gold, charcoal, navy, ivory"
+    },
+    {
+      "index": 93,
+      "code": "starsea_093",
+      "name": "银铃星梦",
+      "presentation": "male",
+      "subject": "soft silver-lilac bob hair",
+      "detail": "a small silver bell crystal and pale violet collar",
+      "scene": "bell-like points of light rippling through a dream sky",
+      "palette": "silver lilac, violet, pearl, navy"
+    },
+    {
+      "index": 94,
+      "code": "starsea_094",
+      "name": "云上月轮",
+      "presentation": "female",
+      "subject": "long cloud-white hair in a loose low tie",
+      "detail": "a cloud-moon ornament and blue-white robe",
+      "scene": "a large quiet moon wheel above layers of luminous cloud",
+      "palette": "cloud white, powder blue, navy, champagne"
+    },
+    {
+      "index": 95,
+      "code": "starsea_095",
+      "name": "蓝砂守望",
+      "presentation": "neutral",
+      "subject": "short slate-blue hair",
+      "detail": "a star-sand compass and structured cobalt jacket",
+      "scene": "blue sand turning into constellations above an ocean cliff",
+      "palette": "slate blue, cobalt, silver, teal"
+    },
+    {
+      "index": 96,
+      "code": "starsea_096",
+      "name": "极光花信",
+      "presentation": "male",
+      "subject": "long dark brown hair with aurora-green ribbons",
+      "detail": "a flower-letter crystal hairpin and ivory jade collar",
+      "scene": "an aurora bloom carrying a gentle message of light",
+      "palette": "aurora green, ivory, indigo, warm gold"
+    },
+    {
+      "index": 97,
+      "code": "starsea_097",
+      "name": "紫海晨歌",
+      "presentation": "female",
+      "subject": "short smoky-purple hair",
+      "detail": "a dawn-song brooch and deep blue mantle",
+      "scene": "violet cosmic water brightening toward sunrise",
+      "palette": "smoky purple, deep blue, apricot light, silver"
+    },
+    {
+      "index": 98,
+      "code": "starsea_098",
+      "name": "天青星鹿",
+      "presentation": "neutral",
+      "subject": "long cool brown hair with cyan tips",
+      "detail": "a stylized deer-star hair ornament made only of jewelry and a celadon collar",
+      "scene": "a delicate celestial deer constellation in a bright sky-blue field",
+      "palette": "sky blue, celadon, cool brown, gold"
+    },
+    {
+      "index": 99,
+      "code": "starsea_099",
+      "name": "暖月归帆",
+      "presentation": "male",
+      "subject": "short warm silver hair",
+      "detail": "a returning-sail pendant and cream navy jacket",
+      "scene": "a small glowing sail returning across a moonlit star ocean",
+      "palette": "warm silver, cream, navy, amber"
+    },
+    {
+      "index": 100,
+      "code": "starsea_100",
+      "name": "万象星庭",
+      "presentation": "female",
+      "subject": "long midnight hair with subtle multicolor starlight",
+      "detail": "a minimal many-worlds crystal at the collar and refined dark robe",
+      "scene": "a balanced celestial courtyard where several distinct planets glow softly",
+      "palette": "midnight blue, teal, violet, muted gold"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/launch_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/privacy_consent_card"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:id="@+id/privacy_consent_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/privacy_consent_title"
+            android:textColor="@color/privacy_consent_text"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/privacy_consent_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/privacy_consent_secondary"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/privacy_consent_agree"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="@color/privacy_consent_primary"
+            android:text="@string/privacy_consent_agree"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/privacy_consent_disagree"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:text="@string/privacy_consent_disagree"
+            android:textAllCaps="false"
+            android:textColor="@color/privacy_consent_secondary"
+            android:textSize="14sp" />
+    </LinearLayout>
+</FrameLayout>

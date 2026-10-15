@@ -1,0 +1,7 @@
+# IP 与归属地仅走后端；密钥：APIHZ_IP_*（haha/.env 或环境变量；管理后台「系统配置」可直接写 .env）
+
+# 仅 IP（等价于原 getapi 由客户端访问时的「当前 IP」，由反向代理头解析）
+curl -s 'http://127.0.0.1:8000/api/config/myIp'
+
+# IP + 归属地（仅 apihz chaapi；须配置服务端 APIHZ_IP_API_ID / APIHZ_IP_API_KEY）
+curl -s 'http://127.0.0.1:8000/api/config/ipLocation'

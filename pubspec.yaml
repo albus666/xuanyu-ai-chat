@@ -1,0 +1,130 @@
+name: xuanyu
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.73+74
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  crypto: ^3.0.7
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  get: ^4.6.6
+  flutter_screenutil: ^5.9.3
+  cupertino_icons: ^1.0.8
+  shared_preferences: ^2.2.2
+  package_info_plus: ^8.3.1
+  dio: ^5.4.0
+  image_picker: ^1.0.7
+  image_picker_android: 0.8.13+17
+  image_picker_platform_interface: ^2.11.1
+  file_picker: ^10.3.10
+  # AI把脉：逐帧读取后置摄像头，进行指尖脉搏波与信号质量检测
+  camera: ^0.11.1
+  flutter_image_compress: ^2.4.0
+  path_provider: ^2.1.0
+  video_player: ^2.8.2
+  flutter_local_notifications: ^17.2.3
+  # 高德地图：iOS 原生选点；Android 3D SDK 在 API 29 正式包会 JNI abort，选点改瓦片地图
+  amap_map: ^1.0.15
+  x_amap_base: ^1.0.3
+  flutter_map: ^7.0.2
+  latlong2: ^0.9.1
+  geolocator: ^13.0.2
+  permission_handler: ^11.3.0
+  http: ^1.2.0
+  # 声网 Agora：一对一语音匹配实时通话
+  agora_rtc_engine: ^6.3.2
+  # 外部分享（系统分享面板、复制等）
+  share_plus: ^10.0.2
+  # 分享图内 APP 二维码
+  qr_flutter: ^4.1.0
+  # 电子罗盘：设备朝向 0–360°
+  flutter_compass: ^0.8.1
+  # 八字排盘（本地计算）：农历/节气/四柱
+  lunar: ^1.7.8
+  # 干支留意、神煞（实验性）：bazi_core 依赖 sxwnl_spa_dart，版本与官方 README 一致
+  bazi_core: ^0.6.0
+  sxwnl_spa_dart: ^0.16.0
+  intl: ">=0.20.2 <0.21.0"
+  # 打开支付链接（H5 支付）
+  url_launcher: ^6.2.0
+  # 微信 APP 支付（直接唤起微信）
+  fluwx: ^5.7.5
+  # 支付宝 APP 支付（直接唤起支付宝）
+  tobias: ^5.3.2
+  google_fonts: ^8.0.2
+  font_awesome_flutter: ^11.0.0
+  gpt_markdown: ^1.1.6
+  flutter_slidable: ^4.0.3
+  audioplayers: ^6.7.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/app_icon.png
+  adaptive_icon_background: "#7044CF"
+  remove_alpha_ios: true
+  background_color_ios: "#7044CF"
+  adaptive_icon_foreground: assets/app_icon.png
+
+# tobias 支付宝回调 URL Scheme（iOS 必填，不能含下划线）
+tobias:
+  url_scheme: xuanyupay
+
+flutter:
+  config:
+    enable-swift-package-manager: false
+  uses-material-design: true
+  assets:
+    - assets/audio/
+    - assets/app_icon.png
+    - images/
+    - images/muyu/muyu_cloud_wave_v3.png
+    - images/muyu/stick_cloud_wave_v3.png
+    - images/wish/waterlife/
+    - images/voice_room/backgrounds/
+    - assets/region_map.json
+    - assets/china_provinces.geojson
+    - assets/merit/
+    - assets/avatars/finished/
+    - assets/reference_actions/
+    - assets/decorations/
+    - assets/decorations/animal_motion/
+    - assets/decorations/star_sea_fantasy/
+    - assets/mingling/
+    - assets/mingling_v2/jia_full_v3.png
+    - assets/mingling_v2/yi_full_v3.png
+    - assets/mingling_v2/bing_full_v3.png
+    - assets/mingling_v2/ding_lamb_full_v3.png
+    - assets/mingling_v2/wu_full_v3.png
+    - assets/mingling_v2/ji_full_v3.png
+    - assets/mingling_v2/geng_full_v3.png
+    - assets/mingling_v2/xin_full_v3.png
+    - assets/mingling_v2/ren_full_v3.png
+    - assets/mingling_v2/gui_full_v3.png
+    - assets/bz/data/
+    - assets/fengshui/
+    - assets/baguapan/4.png
+    - assets/baguapan/compass.png
+    - assets/life_atlas_v2/
+    - assets/astrology/
+    - assets/zodiac/
+
+
+flutter_native_splash:
+  color: "#F2F9FF"
+  fullscreen: true
+  # Android 12+ 由系统接管启动页，保持与应用一致的浅色背景。
+  android_12:
+    color: "#F2F9FF"
+    icon_background_color: "#F2F9FF"

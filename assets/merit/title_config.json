@@ -1,0 +1,19 @@
+{
+  "lifeTitles": [
+    { "id": "life_12", "threshold": 12, "name": "木鱼试岗员", "message": "恭喜入职，敲木鱼也算正式工时" },
+    { "id": "life_88", "threshold": 88, "name": "功德负翁", "message": "功德账户正式负债，下辈子打工都还不清" },
+    { "id": "life_666", "threshold": 666, "name": "天庭黑名单常驻", "message": "天庭功德系统正式拉黑你，敲了也白敲" },
+    { "id": "life_1688", "threshold": 1688, "name": "木鱼包浆大师", "message": "木鱼都被你敲出包浆了，建议去申请非遗" },
+    { "id": "life_8888", "threshold": 8888, "name": "把佛祖敲辞职", "message": "佛祖提交退休申请，理由：天天被你敲得头疼" },
+    { "id": "life_18888", "threshold": 18888, "name": "地府特聘债主", "message": "地府找上门，说你欠的功德够投胎当牛做马了" },
+    { "id": "life_66666", "threshold": 66666, "name": "天道摆烂执行官", "message": "天道都管不了你，爱咋咋地" },
+    { "id": "life_99999", "threshold": 99999, "name": "功德圆满", "message": "当世修行圆满，可开启轮回转生" }
+  ],
+  "reincarnationTitles": [
+    { "count": 1, "name": "一转负翁", "unlock": "转生专属文案池" },
+    { "count": 3, "name": "三转地府债主", "unlock": "地府篇专属文案池" },
+    { "count": 5, "name": "五转三界刺头", "unlock": "天庭篇专属文案池" },
+    { "count": 7, "name": "七转摆烂至尊", "unlock": "摆烂篇专属文案池" },
+    { "count": 10, "name": "十转创世神", "unlock": "创世级隐藏文案" }
+  ]
+}

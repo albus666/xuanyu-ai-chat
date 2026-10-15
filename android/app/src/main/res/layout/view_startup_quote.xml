@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/launch_background"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/startup_quote_icon"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/startup_brand_icon" />
+
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="34dp" />
+
+        <TextView
+            android:id="@+id/startup_quote_text"
+            android:layout_width="match_parent"
+            android:layout_height="132dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingMultiplier="1.45"
+            android:maxLines="3"
+            android:text="@string/startup_quote_default"
+            android:textColor="#284B77"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+</FrameLayout>

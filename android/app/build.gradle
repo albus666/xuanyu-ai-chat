@@ -1,0 +1,199 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def keystoreProperties = new Properties()
+// Keep server credentials outside the disposable build checkout.
+def signingPropertiesPath = System.getenv("XUANYU_SIGNING_PROPERTIES")
+def localKeystorePropertiesFile = rootProject.file("key.properties")
+def keystorePropertiesFile = signingPropertiesPath
+        ? file(signingPropertiesPath)
+        : (localKeystorePropertiesFile.exists()
+            ? localKeystorePropertiesFile
+            : new File(System.getProperty("user.home"), ".config/xuanyu/signing.properties"))
+if (keystorePropertiesFile.exists()) {
+    keystorePropertiesFile.withInputStream { keystoreProperties.load(it) }
+}
+
+def validateReleaseSigning = tasks.register("validateReleaseSigning") {
+    doLast {
+        if (!keystorePropertiesFile.isFile()) {
+            throw new GradleException("Release signing configuration is missing. Configure XUANYU_SIGNING_PROPERTIES or android/key.properties.")
+        }
+        ["storeFile", "storePassword", "keyAlias", "keyPassword"].each { key ->
+            if (!keystoreProperties[key]?.trim()) {
+                throw new GradleException("Release signing configuration is incomplete: ${key}")
+            }
+        }
+        if (!file(keystoreProperties["storeFile"]).isFile()) {
+            throw new GradleException("Release signing keystore does not exist.")
+        }
+    }
+}
+
+// The privacy gate is shown before Flutter and third-party plugins may start.
+// Package the same legal copy used by Flutter so the gate can open it offline,
+// without handing the user to a browser or maintaining a second copy.
+def legalDocumentSourceFile = rootProject.file("../lib/features/profile/legal_document_page.dart")
+def generatedNativeLegalAssetsDir = file("$buildDir/generated/nativeLegalAssets")
+def generateNativeLegalDocuments = tasks.register("generateNativeLegalDocuments") {
+    inputs.file(legalDocumentSourceFile)
+    outputs.dir(generatedNativeLegalAssetsDir)
+
+    doLast {
+        def source = legalDocumentSourceFile.getText("UTF-8")
+        [
+                "user_agreement.txt": "_userAgreement",
+                "privacy_policy.txt": "_privacyPolicy",
+        ].each { outputName, variableName ->
+            def marker = "const ${variableName} = '''"
+            def markerAt = source.indexOf(marker)
+            if (markerAt < 0) {
+                throw new GradleException("Cannot find ${variableName} in ${legalDocumentSourceFile}")
+            }
+
+            def contentStart = markerAt + marker.length()
+            if (source.startsWith("\r\n", contentStart)) {
+                contentStart += 2
+            } else if (source.startsWith("\n", contentStart)) {
+                contentStart += 1
+            }
+            def contentEnd = source.indexOf("\n''';", contentStart)
+            if (contentEnd < 0) {
+                throw new GradleException("Cannot find the end of ${variableName} in ${legalDocumentSourceFile}")
+            }
+
+            def outputFile = new File(generatedNativeLegalAssetsDir, "legal/${outputName}")
+            outputFile.parentFile.mkdirs()
+            outputFile.setText(
+                    source.substring(contentStart, contentEnd).replace("\r\n", "\n"),
+                    "UTF-8",
+            )
+        }
+    }
+}
+tasks.configureEach {
+    if (name == "preReleaseBuild") {
+        dependsOn(validateReleaseSigning)
+    }
+    if (name.startsWith("merge") && name.endsWith("Assets")) {
+        dependsOn(generateNativeLegalDocuments)
+    }
+}
+
+android {
+    namespace = "com.xuanyu.android"
+    compileSdk = 36
+    ndkVersion = "28.2.13676358"
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.xuanyu.android"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = 24  // tobias 等插件要求至少 24，低于 24 的设备将无法安装
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    sourceSets {
+        main {
+            assets.srcDir generatedNativeLegalAssetsDir
+        }
+    }
+
+    packaging {
+        jniLibs {
+            // 直装 APK 对 .so 使用压缩封装，显著降低下载体积；安装时由系统解压。
+            useLegacyPackaging true
+            // Agora 等插件可能带同名 so，避免打包冲突
+            pickFirsts += [
+                    "**/libc++_shared.so",
+                    "**/libopenssl.so",
+            ]
+            // 玄遇使用基础语音/视频通话，不启用下列 Agora 可选增强模块。
+            // 保留 RTC 核心、视频编解码、AEC/ANS、SoundTouch 与 FFmpeg。
+            // 注意：不要在此处排除 x86/x86_64，否则在 x86_64 模拟器上
+            // Flutter 只生成模拟器 ABI 的 libflutter.so 会被剥掉，启动直接闪退。
+            excludes += [
+                    // 禁止 10.x so 和 11.x Java 混包，否则 JNI abort。
+                    "**/libAMapSDK_MAP_v10*.so",
+                    // 11.x 定位 so 在 Android 10 后台线程 JNI_OnLoad 会 SIGABRT。
+                    "**/libapssdk.so",
+                    "**/libagora_audio_beauty_extension.so",
+                    "**/libagora_clear_vision_extension.so",
+                    "**/libagora_content_inspect_extension.so",
+                    "**/libagora_face_capture_extension.so",
+                    "**/libagora_face_detection_extension.so",
+                    "**/libagora_lip_sync_extension.so",
+                    "**/libagora_screen_capture_extension.so",
+                    "**/libagora_segmentation_extension.so",
+                    "**/libagora_spatial_audio_extension.so",
+                    "**/libagora_video_av1_encoder_extension.so",
+                    "**/libagora_video_quality_analyzer_extension.so",
+            ]
+        }
+    }
+
+    signingConfigs {
+        release {
+            if (keystorePropertiesFile.exists()) {
+                keyAlias keystoreProperties["keyAlias"]
+                keyPassword keystoreProperties["keyPassword"]
+                storeFile keystoreProperties["storeFile"] ? file(keystoreProperties["storeFile"]) : null
+                storePassword keystoreProperties["storePassword"]
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 本机/CI 常用 x86_64 模拟器；必须带上对应 Flutter 引擎，否则 MissingLibraryException。
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a", "x86_64"
+            }
+        }
+        release {
+            // Release builds must never fall back to a debug certificate.
+            signingConfig = signingConfigs.release
+            // 上架真机包：仅 ARM。用 `flutter build apk --target-platform android-arm,android-arm64` 即可。
+            ndk {
+                abiFilters "armeabi-v7a", "arm64-v8a"
+            }
+        }
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.0.4"
+    // Google Play 商店包使用官方应用内更新；不申请未知来源安装权限。
+    implementation "com.google.android.play:app-update:2.1.0"
+    implementation "com.google.android.play:app-update-ktx:2.1.0"
+    // 11.2.100 的 arm64 so 已 16KB 对齐，修复 Android 15+ 进地图选点闪退。
+    // 必须 Java 与 so 同版本；10.1.200 在 16KB 页设备上加载会 JNI abort。
+    implementation "com.amap.api:3dmap-location-search:11.2.100_loc11.2.100_sea9.8.1"
+}
+
+configurations.configureEach {
+    resolutionStrategy {
+        force "com.amap.api:3dmap-location-search:11.2.100_loc11.2.100_sea9.8.1"
+    }
+}
+
+flutter {
+    source = "../.."
+}

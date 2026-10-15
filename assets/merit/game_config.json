@@ -1,0 +1,40 @@
+{
+  "reincarnationThreshold": 99999,
+  "comboContinueMs": 500,
+  "comboBreakMs": 500,
+  "eventBaseProbability": 0.005,
+  "eventPityTaps": 200,
+  "rarityBase": { "common": 0.85, "rare": 0.12, "epic": 0.03 },
+  "karmaPerReincarnation": {
+    "coinMultiplier": 0.05,
+    "rareBonus": 0.01,
+    "epicBonus": 0.003,
+    "eventBonus": 0.001
+  },
+  "comboThresholds": {
+    "doubleCoin": 10,
+    "rareBoost": 30,
+    "angryFish": 66,
+    "forceEpic": 100,
+    "speedDemon": 200,
+    "godSpeed": 500
+  },
+  "comboRewards": {
+    "angryFishCoins": 50,
+    "forceEpicCoins": 100,
+    "godSpeedFragments": 1
+  },
+  "coinDrop": { "min": 1, "max": 10 },
+  "upgradeBaseCost": 50,
+  "upgradeCostFactor": 1.35,
+  "levelCoinBonusPerLevel": 0.05,
+  "level30EpicBonus": 0.02,
+  "woodenFishUnlockLevels": {
+    "atlas": 10,
+    "skins": 20,
+    "rarePool": 30,
+    "comboStyle": 50,
+    "lifeTitle": 80,
+    "max": 100
+  }
+}

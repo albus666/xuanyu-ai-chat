@@ -1,0 +1,93 @@
+# Flutter 相关
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+.melos_tool/
+admin/
+server/
+
+# Android 相关
+**/android/.gradle/
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/app/release/
+**/android/app/debug/
+**/android/app/profile/
+**/android/captures/
+**/android/**/build/
+
+# iOS / macOS 相关
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/App.framework
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/macos/Pods/
+**/macos/.symlinks/
+**/macos/Flutter/ephemeral/
+**/macos/Flutter/GeneratedPluginRegistrant.*
+**/ios/Runner.xcworkspace/
+**/macos/Runner.xcworkspace/
+
+# Xcode 相关
+**/xcuserdata/
+**/*.xcuserstate
+**/*.xcbkptlist
+**/DerivedData/
+*.xcscmblueprint
+*.xcuserdatad
+*.moved-aside
+
+# VS Code
+.vscode/
+.history/
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+.gradle/
+local.properties
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志 / 临时文件
+*.log
+*.tmp
+*.swp
+
+# DevTools 本地偏好（可重新生成）
+devtools_options.yaml
+
+# 其他可能的敏感文件
+*.keystore
+*.jks
+*.p12
+*.pem
+*.cer
+*.key
+.env
+.env.*
+
+# 签名密钥目录（勿提交；旧名 linshi 已废弃）
+linshi/
+tmp_secrets/
+local_secrets/
+android/keystore/
+android/key.properties
+
+# 超大文件（超过 GitHub 100MB 限制，需单独获取）
+map.json
+assets/map.json
+ios/Vendor/AMap3DMap/MAMapKit.framework/

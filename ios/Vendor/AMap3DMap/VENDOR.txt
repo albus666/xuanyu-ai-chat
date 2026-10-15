@@ -1,0 +1,5 @@
+1. 将高德官方 iOS 3D 地图包（与 CocoaPods 11.1.000 一致）解压后，把 MAMapKit.framework 整目录放到本文件夹，与 AMap3DMap.podspec 同级。
+2. 结构应与「曾成功 pod install 后」的 ios/Pods/AMap3DMap/ 下相同（根目录即 MAMapKit.framework）。
+3. 不要提交 ios/Pods/；Pods 目录保持 gitignore。
+4. 放入 framework 后在本机执行: cd ios && pod install
+   然后提交 Podfile.lock 的变更（若有）。
