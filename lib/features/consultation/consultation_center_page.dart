@@ -739,10 +739,12 @@ class _TabHeaderDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
           BuildContext context, double shrinkOffset, bool overlapsContent) =>
-      Material(
-        color: const Color(0xFFEAF8FA),
-        elevation: overlapsContent ? 1 : 0,
-        child: tabBar,
+      SizedBox.expand(
+        child: Material(
+          color: const Color(0xFFEAF8FA),
+          elevation: overlapsContent ? 1 : 0,
+          child: tabBar,
+        ),
       );
   @override
   bool shouldRebuild(covariant _TabHeaderDelegate oldDelegate) =>
